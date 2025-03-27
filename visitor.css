@@ -13,23 +13,6 @@ body {
     position: relative;
 }
 
-/* 🔥 Custom Neon Cursor (Reduced White Glow) */
-.cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background: #02f8fc;
-    box-shadow: 0 0 8px #02f8fc, 0 0 12px rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.05s linear;
-}
-
-/* 🔥 Neon Glow Animation */
-@keyframes neonGlow {
-    0%, 100% { text-shadow: 0 0 10px #ffffff, 0 0 20px #02f8fc, 0 0 30px #f800f1; }
-    50% { text-shadow: 0 0 15px #f800f1, 0 0 25px #02f8fc, 0 0 35px #ffffff; }
-}
 
 /* 🔥 Counter Container */
 .counter-container {

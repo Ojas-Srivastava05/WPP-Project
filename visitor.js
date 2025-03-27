@@ -59,14 +59,3 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(animateCounter, 1000);
 });
 
-document.addEventListener("mousemove", (e) => {
-    let x = e.clientX / window.innerWidth;
-    let y = e.clientY / window.innerHeight;
-
-    // Subtle gradient effect on black background
-    document.body.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(2, 248, 252, 0.05)1%, rgba(248, 0, 241, 0.05),2%, black)`;
-
-    // Move Neon Particles
-    
-   
-});

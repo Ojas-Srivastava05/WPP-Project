@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 
+    
+
 /* General Page Styling */
 body {
     background-color: #111542; /* Updated background color */
@@ -86,23 +88,25 @@ p{
     --base-font: #d1d8e0;   
 }
 
+
 .Name {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 60px;
-    /* border: 3px solid var(--neon-blue);
-    border-radius: 20px; */
     color: var(--neon-pink);
-    text-shadow: 0 0 15px #f800f0b0, 0 0 30px #f800f07e;
+    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+    animation: neonGlow 1.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
- 
-    &:hover {
     text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
 }
-}
+    
+
+    
+
+
 
 
 .Punchline {
@@ -115,7 +119,13 @@ p{
     margin-top: 10px; /* Add some space below the website name */
     display: block; /* Ensures it behaves as a separate element */
     position: absolute;
-    right:30%
+    right:37.9%;
+    color: white;
+    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+    animation: neonGlow 1.5s infinite alternate;
+    transition: text-shadow 0.2s ease-in-out;
+    text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
+    
 }
 
 body {
@@ -153,23 +163,9 @@ body {
     position: relative;
 }
 
-/* 🔥 Custom Neon Cursor (Reduced White Glow) */
-.cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background: #02f8fc;
-    box-shadow: 0 0 8px #02f8fc, 0 0 12px rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.05s linear;
-}
 
-/* 🔥 Neon Glow Animation */
-@keyframes neonGlow {
-    0%, 100% { text-shadow: 0 0 10px #ffffff, 0 0 20px #02f8fc, 0 0 30px #f800f1; }
-    50% { text-shadow: 0 0 15px #f800f1, 0 0 25px #02f8fc, 0 0 35px #ffffff; }
-}
+
+
 
 /* 🔥 Counter Container */
 .counter-container {
@@ -219,3 +215,7 @@ body {
     -webkit-text-stroke: 1px #ffffff;
 }
 
+body {
+    background: url('_.gif') no-repeat center center fixed;
+    background-size: cover;
+}
