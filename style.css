@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+/* 🔥 Hide Default Cursor */
+body {
+    cursor: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000000;
+    font-family: "Rajdhani", sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 🔥 Custom Neon Cursor (Reduced White Glow) */
+.cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: #02f8fc;
+    box-shadow: 0 0 8px #02f8fc, 0 0 12px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.05s linear;
+}
+
+/* 🔥 Neon Glow Animation */
+@keyframes neonGlow {
+    0%, 100% { text-shadow: 0 0 10px #ffffff, 0 0 20px #02f8fc, 0 0 30px #f800f1; }
+    50% { text-shadow: 0 0 15px #f800f1, 0 0 25px #02f8fc, 0 0 35px #ffffff; }
+}
+
+/* 🔥 Counter Container */
+.counter-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 🔥 Neon Heading */
+.neon-text {
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #02f8fc;
+    animation: neonGlow 1.5s infinite alternate;
+    
+    /* Subtle White Highlight */
+    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+}
+
+/* 🔥 Floating Neon Numbers */
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* 🔥 Digit Styling */
+.digit {
+    font-size: 90px;
+    font-weight: 600;
+    font-family: "Rajdhani", sans-serif;
+    line-height: 100px;
+    transition: transform 0.4s ease-out;
+    color: #02f8fc;
+    text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
+    text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+/* 🔥 Background Effects */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 1%, transparent 30%),
+                radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 20%),
+                radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 10%);
+    background-size: 50px 50px, 50px 50px, 50px 50px;
+    opacity: 0.8;
+    animation: starsMove 15s linear infinite, starsTwinkle 3s infinite alternate;
+}
+
+/* 🔥 Neon Particles */
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #02f8fc;
+    box-shadow: 0 0 20px #02f8fc;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: transform 0.1s ease-out;
+}
+
+/* 🔥 Animations */
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: -200px -200px; }
+}
+
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+/* General Page Styling */
+body {
+    background-color: #111542; /* Updated background color */
+    overflow-x: hidden;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+p{
+    font-size: x-small;
+}
+/* Container Styling */
+#namecontain {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: auto;
+    display: flex;
+    flex-direction: column; /* Ensures boxes appear below each other */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures only one name is visible */
+    padding: 20px; /* Added padding for spacing */
+    gap: 20px; /* Adds spacing between boxes */
+}
+
+/* Box Styling */
+.main {
+    height: 150px;
+    width: 300px;
+    color: #d1d8e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(248, 0, 241, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.main:nth-child(1) { animation-delay: 0.5s; }
+.main:nth-child(2) { animation-delay: 1s; }
+.main:nth-child(3) { animation-delay: 1.5s; }
+.main:nth-child(4) { animation-delay: 2s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1; /* Full opacity after animation */
+        transform: translateY(0);
+    }
+}
+.main{
+    /* border: 3px solid var(--neon-blue);
+    border-radius: 20px; */
+    color: #d1d8e0;
+    text-shadow: 0 0 15px #d1d8e0, 0 0 30px #d1d8e0;
+    transition: text-shadow 0.2s ease-in-out;
+ 
+    &:hover {
+    text-shadow: 0 0 15p#d1d8e0, 0 0 30px #d1d8e0, 0 0 50px #6562654a;
+}
+}
+
+@import url(https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Tektur:wght@400..900&display=swap);
+
+:root{
+    --bgc: #111542; /*dark blue for background*/
+    --neon-blue: #02f8fc;
+    --neon-pink: #f800f1;
+    --base-font: #d1d8e0;   
+}
+
+.Name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 60px;
+    /* border: 3px solid var(--neon-blue);
+    border-radius: 20px; */
+    color: var(--neon-pink);
+    text-shadow: 0 0 15px #f800f0b0, 0 0 30px #f800f07e;
+    transition: text-shadow 0.2s ease-in-out;
+ 
+    &:hover {
+    text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
+}
+}
+
+
+.Punchline{
+    font-size: 30px;
+    /* border: 3px solid var(--neon-blue);
+    border-radius: 20px; */
+    color: var(--neon-blue);
+    transition: text-shadow 0.2s ease-in-out;
+
+    &:hover {
+        text-shadow: 0 0 15px #02f8fc;
+    }
+}
+
+body {
+    font-family: "tektur", sans-serif;
+    font-weight: bolder;    
+    background-color: #111542;
+    
+}
+
+.Entry{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 20%;
+}
+
+/* body *{
+    margin: 3px;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+/* 🔥 Hide Default Cursor */
+body {
+    cursor: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000000;
+    font-family: "Rajdhani", sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 🔥 Custom Neon Cursor (Reduced White Glow) */
+.cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: #02f8fc;
+    box-shadow: 0 0 8px #02f8fc, 0 0 12px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.05s linear;
+}
+
+/* 🔥 Neon Glow Animation */
+@keyframes neonGlow {
+    0%, 100% { text-shadow: 0 0 10px #ffffff, 0 0 20px #02f8fc, 0 0 30px #f800f1; }
+    50% { text-shadow: 0 0 15px #f800f1, 0 0 25px #02f8fc, 0 0 35px #ffffff; }
+}
+
+/* 🔥 Counter Container */
+.counter-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 🔥 Neon Heading */
+.neon-text {
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #02f8fc;
+    animation: neonGlow 1.5s infinite alternate;
+    
+    /* Subtle White Highlight */
+    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+}
+
+/* 🔥 Floating Neon Numbers */
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* 🔥 Digit Styling */
+.digit {
+    font-size: 90px;
+    font-weight: 600;
+    font-family: "Rajdhani", sans-serif;
+    line-height: 100px;
+    transition: transform 0.4s ease-out;
+    color: #02f8fc;
+    text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
+    text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+/* 🔥 Background Effects */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 1%, transparent 30%),
+                radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 20%),
+                radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 10%);
+    background-size: 50px 50px, 50px 50px, 50px 50px;
+    opacity: 0.8;
+    animation: starsMove 15s linear infinite, starsTwinkle 3s infinite alternate;
+}
+
+/* 🔥 Neon Particles */
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #02f8fc;
+    box-shadow: 0 0 20px #02f8fc;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: transform 0.1s ease-out;
+}
+
+/* 🔥 Animations */
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: -200px -200px; }
+}
+
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
