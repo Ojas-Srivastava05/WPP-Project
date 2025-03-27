@@ -212,6 +212,7 @@ body {
     font-family: "Rajdhani", sans-serif;
     line-height: 80px;
     transition: transform 0.4s ease-out;
+    transform: translateY(-30%);
     color: #02f8fc;
     text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
     text-stroke: 1px #ffffff;
