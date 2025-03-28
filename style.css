@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'BatmanForever';
+    src: url('batmfa__.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 /* General Page Styling */
@@ -88,17 +95,20 @@ p{
 
 .Name {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 60px;
+    font-size: 100px;
     color: var(--neon-pink);
     text-shadow: 2px 2px 5px #ffffff, 0 0 10px #02f8fc, 0 0 20px #f800f1;
     animation: neonGlow 1.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
     white-space: nowrap;
-    font-family: 'Rajdhani', sans-serif; /* Updated font */
+    font-family: 'BatmanForever', sans-serif; /* Updated font */
+    max-width: 100%; /* Prevents text from breaking */
+    overflow: hidden; /* Ensures smooth display */
+    word-wrap: normal; /* Avoids unexpected wrapping */
 }
 
 .Punchline {
@@ -111,13 +121,13 @@ p{
     margin-top: 10px; /* Add some space below the website name */
     display: block; /* Ensures it behaves as a separate element */
     position: absolute;
-    right: 38%;
+    right: 25%;
     color: white;
     text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
-    animation: neonGlow 1.5s infinite alternate;
+    animation: neonGlow 0.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
     text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
-    
+    font-family: 'BatmanForever', sans-serif; /* Updated font */
 }
 
 
@@ -150,7 +160,7 @@ body {
     align-items: center;
     height: 100vh;
     background: #000000;
-    font-family: "Rajdhani", sans-serif;
+    font-family: "BatmanForever", sans-serif;
     overflow: hidden;
     position: relative;
 }
@@ -194,7 +204,7 @@ body {
 .digit {
     font-size: 70px;
     font-weight: 580;
-    font-family: "Rajdhani", sans-serif; /* Updated font */
+    font-family: "BatmanForever", sans-serif; /* Updated font */
     line-height: 80px;
     transition: transform 0.4s ease-out;
     transform: translateY(0); /* Adjusted to prevent disappearing effect */
@@ -207,7 +217,7 @@ body {
 }
 
 body {
-    background: url('_.gif') no-repeat center center fixed;
+    background: url('Glow\ Black\ And\ White\ GIF\ by\ xponentialdesign\ \(1\).gif') no-repeat center center fixed;
     background-size: cover;
 }
 
