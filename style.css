@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 
-    
-
 /* General Page Styling */
 body {
     background-color: #111542; /* Updated background color */
@@ -97,17 +95,11 @@ p{
     text-align: center;
     font-size: 60px;
     color: var(--neon-pink);
-    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+    text-shadow: 2px 2px 5px #ffffff, 0 0 10px #02f8fc, 0 0 20px #f800f1;
     animation: neonGlow 1.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
-    text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
+    white-space: nowrap;
 }
-    
-
-    
-
-
-
 
 .Punchline {
     font-size: 30px;
@@ -119,7 +111,7 @@ p{
     margin-top: 10px; /* Add some space below the website name */
     display: block; /* Ensures it behaves as a separate element */
     position: absolute;
-    right:37.9%;
+    right: 38%;
     color: white;
     text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
     animation: neonGlow 1.5s infinite alternate;
@@ -127,6 +119,7 @@ p{
     text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
     
 }
+
 
 body {
     font-family: "tektur", sans-serif;
@@ -162,10 +155,6 @@ body {
     overflow: hidden;
     position: relative;
 }
-
-
-
-
 
 /* 🔥 Counter Container */
 .counter-container {
@@ -218,4 +207,9 @@ body {
 body {
     background: url('_.gif') no-repeat center center fixed;
     background-size: cover;
+}
+
+.Name, .Punchline {
+    max-width: 100%;
+    overflow: hidden;
 }
