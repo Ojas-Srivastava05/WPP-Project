@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ojas/Desktop/Mess Management/Mess Management",
+      "program": "/Users/ojas/Desktop/Mess Management/Mess Management/build/Debug/outDebug"
+    }
+  ]
+}

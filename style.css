@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
-
 /* General Page Styling */
 body {
     background-color: #111542; /* Updated background color */
@@ -99,6 +98,7 @@ p{
     animation: neonGlow 1.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
     white-space: nowrap;
+    font-family: 'Rajdhani', sans-serif; /* Updated font */
 }
 
 .Punchline {
@@ -145,7 +145,6 @@ body {
 
 /* 🔥 Hide Default Cursor */
 body {
-    cursor: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,20 +187,23 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
+    visibility: visible; /* Ensures visibility */
 }
 
 /* 🔥 Digit Styling */
 .digit {
     font-size: 70px;
     font-weight: 580;
-    font-family: "Rajdhani", sans-serif;
+    font-family: "Rajdhani", sans-serif; /* Updated font */
     line-height: 80px;
     transition: transform 0.4s ease-out;
-    transform: translateY(-30%);
+    transform: translateY(0); /* Adjusted to prevent disappearing effect */
     color: #02f8fc;
     text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
-    text-stroke: 1px #ffffff;
     -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
+    display: inline-block; /* Ensures proper visibility */
+    opacity: 1; /* Makes sure digits are fully visible */
 }
 
 body {
