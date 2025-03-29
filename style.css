@@ -99,9 +99,9 @@ p{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 60px;
-    color: yellow;
-    text-shadow: 2px 2px 5px black, 0 0 10px #02f8fc, 0 0 20px black;
+    font-size: 100px;
+    color: var(--neon-pink);
+    text-shadow: 2px 2px 5px #ffffff, 0 0 10px #02f8fc, 0 0 20px #f800f1;
     animation: neonGlow 1.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
     white-space: nowrap;
@@ -112,7 +112,7 @@ p{
 }
 
 .Punchline {
-    font-size: 25px;
+    font-size: 30px;
     color: var(--neon-blue);
     transition: text-shadow 0.2s ease-in-out;
     position: absolute;
@@ -123,10 +123,10 @@ p{
     position: absolute;
     right: 25%;
     color: white;
-   
+    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
     animation: neonGlow 0.5s infinite alternate;
     transition: text-shadow 0.2s ease-in-out;
-    text-shadow: 0 0 15px black, 0 0 30px #f800f092, 0 0 50px black;
+    text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
     font-family: 'BatmanForever', sans-serif; /* Updated font */
 }
 
@@ -211,13 +211,13 @@ body {
     color: #02f8fc;
     text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
     -webkit-text-stroke: 1px #ffffff;
-    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
     display: inline-block; /* Ensures proper visibility */
     opacity: 1; /* Makes sure digits are fully visible */
 }
 
 body {
-    background: url('_.gif') no-repeat center center fixed;
+    background: url('Glow\ Black\ And\ White\ GIF\ by\ xponentialdesign\ \(1\).gif') no-repeat center center fixed;
     background-size: cover;
 }
 
