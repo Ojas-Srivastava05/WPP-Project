@@ -4,6 +4,22 @@
     font-weight: normal;
     font-style: normal;
 }
+#param
+{
+    color: #000000
+}
+#ojas
+{
+    color: black
+}
+#drisha
+{
+    color: #000000
+}
+#pratham
+{
+    color: black
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
@@ -34,6 +50,9 @@ p{
     overflow: hidden; /* Ensures only one name is visible */
     padding: 20px; /* Added padding for spacing */
     gap: 20px; /* Adds spacing between boxes */
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background for neon effect */
 }
 
 /* Box Styling */
@@ -50,7 +69,6 @@ p{
     font-weight: bold;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(248, 0, 241, 0.5);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s ease-in forwards;
@@ -92,25 +110,52 @@ p{
     --base-font: #d1d8e0;   
 }
 
-
 .Name {
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: 50%; /* Move slightly right */
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    padding-left: 10px; /* Give space to avoid cutting */
+    letter-spacing: 2px;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 100px;
-    color: var(--neon-pink);
-    text-shadow: 2px 2px 5px #ffffff, 0 0 10px #02f8fc, 0 0 20px #f800f1;
-    animation: neonGlow 1.5s infinite alternate;
-    transition: text-shadow 0.2s ease-in-out;
+    font-size: 150px;
+    font-family: "BatmanForever", sans-serif;
+    color: #000000; /* ✅ White website name */
+    text-transform: uppercase;
     white-space: nowrap;
-    font-family: 'BatmanForever', sans-serif; /* Updated font */
-    max-width: 100%; /* Prevents text from breaking */
-    overflow: hidden; /* Ensures smooth display */
-    word-wrap: normal; /* Avoids unexpected wrapping */
+
+    /* ⚡ Controlled Neon Glow */
+    text-shadow: 
+        0 0 15px var(--neon-pink), 
+        0 0 30px var(--neon-pink), 
+        0 0 50px var(--neon-pink);
+
+    animation: neonPulse 1.5s infinite alternate ease-in-out;
 }
 
+/* 🔥 Reduced Neon Flicker Effect */
+@keyframes neonPulse {
+    0% { 
+        text-shadow: 
+            0 0 5px var(--neon-pink), 
+            0 0 10px var(--neon-pink), 
+            0 0 20px var(--neon-pink);
+    }
+    50% { 
+        text-shadow: 
+            0 0 10px var(--neon-pink), 
+            0 0 20px var(--neon-pink), 
+            0 0 40px var(--neon-pink); 
+    }
+    100% { 
+        text-shadow: 
+            0 0 5px var(--neon-pink), 
+            0 0 10px var(--neon-pink), 
+            0 0 20px var(--neon-pink);
+    }
+}
 .Punchline {
     font-size: 30px;
     color: var(--neon-blue);
@@ -122,11 +167,15 @@ p{
     display: block; /* Ensures it behaves as a separate element */
     position: absolute;
     right: 25%;
-    color: white;
-    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
-    animation: neonGlow 0.5s infinite alternate;
-    transition: text-shadow 0.2s ease-in-out;
-    text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f092, 0 0 50px #f800f04a;
+    color: #000000; /* ✅ White website name */
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    /* ⚡ Controlled Neon Glow */
+    text-shadow: 
+        0 0 5px var(--neon-pink), 
+        0 0 5px var(--neon-pink), 
+        0 0 50px var(--neon-pink);
     font-family: 'BatmanForever', sans-serif; /* Updated font */
 }
 
@@ -185,36 +234,49 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #02f8fc;
+    color: rgb(0, 0, 0);
     animation: neonGlow 1.5s infinite alternate;
-    
-    /* Subtle White Highlight */
-    text-shadow: 2px 2px 0px #ffffff, 0 0 15px #02f8fc, 0 0 30px #f800f1;
+
+    /* Updated Neon Glow */
+    text-shadow: 
+        0 0 5px var(--neon-pink), 
+        0 0 5px var(--neon-pink), 
+        0 0 50px var(--neon-pink);
+        -webkit-text-stroke: 0.2px #ffffff;
+        text-stroke: 1px #ffffff;
+        display: inline-block; /* Ensures proper visibility */
+        opacity: 1;
+    font-family: 'BatmanForever', sans-serif;
 }
 
 /* 🔥 Floating Neon Numbers */
 .counter {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 2px;
     visibility: visible; /* Ensures visibility */
 }
 
 /* 🔥 Digit Styling */
 .digit {
+    
     font-size: 70px;
     font-weight: 580;
     font-family: "BatmanForever", sans-serif; /* Updated font */
     line-height: 80px;
     transition: transform 0.4s ease-out;
     transform: translateY(0); /* Adjusted to prevent disappearing effect */
-    color: #02f8fc;
-    text-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
+    color: rgb(0, 0, 0);
+    text-shadow: 
+        0 0 5px var(--neon-pink), 
+        0 0 5px var(--neon-pink), 
+        0 0 50px var(--neon-pink);
     -webkit-text-stroke: 1px #ffffff;
     text-stroke: 1px #ffffff;
     display: inline-block; /* Ensures proper visibility */
     opacity: 1; /* Makes sure digits are fully visible */
 }
+
 
 body {
     background: url('_.gif') no-repeat center center fixed;
@@ -225,3 +287,41 @@ body {
     max-width: 100%;
     overflow: hidden;
 }
+
+#expbtn {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: "BatmanForever", sans-serif;
+    color: var(--neon-pink);
+    background: rgba(248, 0, 241, 0.1); /* Slight pink glow inside */
+    border: 2px solid var(--neon-pink);
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 100%;
+  }
+  
+  /* 🔥 Animated Neon Flicker */
+  @keyframes neon-flicker {
+    0% { box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
+    50% { box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink); }
+    100% { box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
+  }
+  
+  /* 🔥 Hover Effect: Stronger Glow */
+  #expbtn:hover {
+    background: var(--neon-pink);
+    color: #111542; /* Dark mode contrast */
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 60px var(--neon-pink);
+    animation: neon-flicker 0.3s infinite alternate;
+  }
+  
+  /* 🔥 Active Click Effect */
+  #expbtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+  }
