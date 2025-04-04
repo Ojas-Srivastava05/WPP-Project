@@ -64,7 +64,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(animateCounter, 1000);
 });
-document.getElementById("expbtn").addEventListener("click", function() {
-    let audio = new Audio("cyberpunk_message.mp3"); 
-    audio.play();
-});
