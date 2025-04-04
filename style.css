@@ -21,6 +21,7 @@
     color: black
 }
 
+
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 /* General Page Styling */
@@ -324,4 +325,10 @@ body {
   #expbtn:active {
     transform: scale(0.95);
     box-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
