@@ -52,6 +52,7 @@ p{
     padding: 20px; /* Added padding for spacing */
     gap: 20px; /* Adds spacing between boxes */
     border: 3px solid rgb(0, 0, 0);
+
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background for neon effect */
 }
@@ -332,3 +333,5 @@ body {
     padding: 0;
     box-sizing: border-box;
   }
+
+  
