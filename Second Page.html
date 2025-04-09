@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Second Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Orbitron', 'Bebas Neue', sans-serif;
       display: flex;
       background-image: url("background5.jpg");
       background-size: cover;
@@ -43,13 +43,23 @@
       padding: 16px;
       color: #02f8fc;
       text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-      font-weight: 500;
+      font-weight: 700;
+      font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+      border-radius: 4px;
     }
 
     .button:hover {
-      background-color: rgba(2, 248, 252, 0.15);
+      background-color: rgba(2, 248, 252, 0.1);
       color: #f800f1;
+      border-left: 4px solid #02f8fc;
+      box-shadow: 0 0 10px #02f8fc, 0 0 20px #02f8fc inset;
+      transform: scale(1.05);
     }
 
     .icon {
@@ -60,6 +70,10 @@
     .label {
       white-space: nowrap;
       font-size: 1rem;
+      font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .sidebar:not(:hover) .label {
@@ -109,11 +123,11 @@
 
     .text-carousel {
       flex: 1;
-      max-width: 30%;
+      max-width: 40%;
       background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 1.5rem;
+      padding: 2rem 2rem;
       border-radius: 12px;
-      max-height: 250px;
+      max-height: 300px;
       display: flex;
       align-items: center;
       box-shadow: 0 0 15px #f800f188;
@@ -135,6 +149,10 @@
       font-style: italic;
       color: #02f8fc;
       text-shadow: 0 0 5px rgba(2, 248, 252, 0.5);
+      font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .text-carousel .carousel-item p {
@@ -142,6 +160,10 @@
       margin-top: 0.5rem;
       color: #f800f1;
       text-shadow: 0 0 4px rgba(248, 0, 241, 0.5);
+      font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .carousel-item {
@@ -171,7 +193,7 @@
     </a>
     <a href="#" class="button">
       <span class="icon">🗓️</span>
-      <span class="label">Calender</span>
+      <span class="label">Calendar</span>
     </a>
     <a href="#" class="button">
       <span class="icon">🧑‍💻</span>
