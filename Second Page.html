@@ -8,6 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --sidebar-width: 3.75rem; /* 60px */
+      --sidebar-expanded: 13.75rem; /* 220px */
+      --button-padding: 1rem;
+      --border-radius: 0.75rem;
+    }
+
     body {
       margin: 0;
       font-family: 'Orbitron', 'Bebas Neue', sans-serif;
@@ -24,47 +31,47 @@
     .sidebar {
       position: relative;
       height: 100vh;
-      width: 60px;
+      width: var(--sidebar-width);
       background: rgba(0, 0, 0, 0.6);
-      box-shadow: 4px 0 15px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 0 1rem rgba(0, 255, 255, 0.3);
       transition: width 0.3s ease;
       overflow: hidden;
       flex-shrink: 0;
-      border-right: 1px solid #00f7ff44;
+      border-right: 0.1rem solid #00f7ff44;
     }
 
     .sidebar:hover {
-      width: 220px;
+      width: var(--sidebar-expanded);
     }
 
     .button {
       display: flex;
       align-items: center;
-      padding: 16px;
+      padding: var(--button-padding);
       color: #02f8fc;
       text-decoration: none;
       font-weight: 700;
       font-family: 'Orbitron', 'Bebas Neue', sans-serif;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05rem;
       text-transform: uppercase;
       position: relative;
       background-color: rgba(0, 0, 0, 0.4);
       transition: all 0.3s ease;
-      border-left: 4px solid transparent;
-      border-radius: 4px;
+      border-left: 0.25rem solid transparent;
+      border-radius: 0.25rem;
     }
 
     .button:hover {
       background-color: rgba(2, 248, 252, 0.1);
       color: #f800f1;
-      border-left: 4px solid #02f8fc;
-      box-shadow: 0 0 10px #02f8fc, 0 0 20px #02f8fc inset;
+      border-left: 0.25rem solid #02f8fc;
+      box-shadow: 0 0 0.625rem #02f8fc, 0 0 1.25rem #02f8fc inset;
       transform: scale(1.05);
     }
 
     .icon {
       font-size: 1.2rem;
-      margin-right: 12px;
+      margin-right: 0.75rem;
     }
 
     .label {
@@ -72,7 +79,7 @@
       font-size: 1rem;
       font-family: 'Orbitron', 'Bebas Neue', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05rem;
       text-transform: uppercase;
     }
 
@@ -85,14 +92,14 @@
       padding: 2rem;
       margin: 1rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(1rem);
+      border: 0.063rem solid rgba(255, 255, 255, 0.2);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: calc(100vh - 1rem);
+      height: calc(100vh - 2rem);
     }
 
     .carousel-container {
@@ -102,36 +109,37 @@
       gap: 2rem;
       flex-wrap: wrap;
       height: 100%;
+      width: 100%;
     }
 
     .image-carousel {
       flex: 2;
-      max-width: 60%;
-      max-height: 400px;
+      width: 60%;
+      max-height: 50vh;
       overflow: hidden;
-      border-radius: 12px;
-      border: 1px solid rgba(2, 248, 252, 0.3);
-      box-shadow: 0 0 20px #02f8fc88;
+      border-radius: var(--border-radius);
+      border: 0.063rem solid rgba(2, 248, 252, 0.3);
+      box-shadow: 0 0 1.25rem #02f8fc88;
     }
 
     .image-carousel .carousel-item img {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: var(--border-radius);
     }
 
     .text-carousel {
       flex: 1;
-      max-width: 40%;
+      width: 35%;
       background: rgba(0, 0, 0, 0.6);
-      padding: 2rem 2rem;
-      border-radius: 12px;
-      max-height: 300px;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      max-height: 40vh;
       display: flex;
       align-items: center;
-      box-shadow: 0 0 15px #f800f188;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 1rem #f800f188;
+      border: 0.063rem solid rgba(255, 255, 255, 0.15);
     }
 
     .text-carousel .carousel-inner {
@@ -145,24 +153,24 @@
     }
 
     .text-carousel .carousel-item h2 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-style: italic;
       color: #02f8fc;
-      text-shadow: 0 0 5px rgba(2, 248, 252, 0.5);
+      text-shadow: 0 0 0.313rem rgba(2, 248, 252, 0.5);
       font-family: 'Orbitron', 'Bebas Neue', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05rem;
       text-transform: uppercase;
     }
 
     .text-carousel .carousel-item p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
       color: #f800f1;
-      text-shadow: 0 0 4px rgba(248, 0, 241, 0.5);
+      text-shadow: 0 0 0.25rem rgba(248, 0, 241, 0.5);
       font-family: 'Orbitron', 'Bebas Neue', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05rem;
       text-transform: uppercase;
     }
 
