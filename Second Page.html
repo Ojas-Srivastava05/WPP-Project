@@ -5,101 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Second Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'Poppins', sans-serif;
       display: flex;
-      background-image: url('Images/background5.jpg'); 
+      background-image: url("background5.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       min-height: 100vh;
+      color: #fff;
+      backdrop-filter: blur(4px);
     }
 
-    /* Sidebar */
     .sidebar {
       position: relative;
       height: 100vh;
       width: 60px;
-      background-color: rgba(51, 51, 51, 0.9); 
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 4px 0 15px rgba(0, 255, 255, 0.3);
       transition: width 0.3s ease;
       overflow: hidden;
       flex-shrink: 0;
+      border-right: 1px solid #00f7ff44;
     }
 
     .sidebar:hover {
-      width: 200px;
+      width: 220px;
     }
 
     .button {
       display: flex;
       align-items: center;
-      padding: 15px;
-      color: white;
+      padding: 16px;
+      color: #02f8fc;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s;
+      font-weight: 500;
     }
 
     .button:hover {
-      background-color: #555;
+      background-color: rgba(2, 248, 252, 0.15);
+      color: #f800f1;
     }
 
     .icon {
-      margin-right: 10px;
+      font-size: 1.2rem;
+      margin-right: 12px;
     }
 
     .label {
       white-space: nowrap;
+      font-size: 1rem;
     }
 
     .sidebar:not(:hover) .label {
       display: none;
     }
 
-    /* Main content */
     .main-content {
       flex-grow: 1;
       padding: 2rem;
       margin: 1rem;
-    }
-
-    .carousel {
-      max-height: 250px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-
-    .carousel-item img {
-      height: 250px;
-      width: 100%;
-      object-fit: contain;
-      background-color: transparent;
-    }
-
-    .text-carousel .carousel-inner {
-      height: 250px;
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       justify-content: center;
       align-items: center;
+      height: calc(100vh - 1rem);
+    }
+
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+
+    .image-carousel {
+      flex: 2;
+      max-width: 60%;
+      max-height: 400px;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(2, 248, 252, 0.3);
+      box-shadow: 0 0 20px #02f8fc88;
+    }
+
+    .image-carousel .carousel-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .text-carousel {
+      flex: 1;
+      max-width: 30%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      max-height: 250px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0 15px #f800f188;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .text-carousel .carousel-inner {
+      width: 100%;
+    }
+
+    .text-carousel .carousel-item {
+      height: 100%;
       text-align: left;
-      padding: 1rem;
+      color: #fff;
     }
 
     .text-carousel .carousel-item h2 {
-      font-size: 1.5rem;
-      color: #fff;
+      font-size: 1.1rem;
       font-style: italic;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      color: #02f8fc;
+      text-shadow: 0 0 5px rgba(2, 248, 252, 0.5);
     }
 
     .text-carousel .carousel-item p {
+      font-size: 0.9rem;
       margin-top: 0.5rem;
-      font-size: 1rem;
-      color: #ddd;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      color: #f800f1;
+      text-shadow: 0 0 4px rgba(248, 0, 241, 0.5);
+    }
+
+    .carousel-item {
+      height: 100%;
     }
   </style>
 </head>
@@ -107,56 +153,70 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <a href="#" class="button">
+    <a href="index.html" class="button">
       <span class="icon">🏠</span>
       <span class="label">Home</span>
     </a>
     <a href="#" class="button">
-      <span class="icon">🔍</span>
-      <span class="label">Search</span>
+      <span class="icon">👥</span>
+      <span class="label">My Clubs</span>
     </a>
     <a href="#" class="button">
-      <span class="icon">⚙️</span>
-      <span class="label">Settings</span>
+      <span class="icon">🏛️</span>
+      <span class="label">Clubs</span>
+    </a>
+    <a href="#" class="button">
+      <span class="icon">🎊</span>
+      <span class="label">Events</span>
+    </a>
+    <a href="#" class="button">
+      <span class="icon">🗓️</span>
+      <span class="label">Calender</span>
+    </a>
+    <a href="#" class="button">
+      <span class="icon">🧑‍💻</span>
+      <span class="label">Login/Sign Up</span>
     </a>
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
-    <!-- Image Carousel -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="4000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="Images/RImage 1.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="Images/RImage 2.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="Images/RImage 3.jpg" alt="Third slide">
+    <div class="carousel-container">
+      <!-- Image Carousel -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide image-carousel" data-ride="carousel" data-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="RImage 1.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="RImage 2.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="RImage 3.jpg" alt="Third slide">
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Text Carousel -->
-    <div id="textCarousel" class="carousel slide text-carousel" data-interval="false">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div>
-            <h2>"The best way to predict the future is to invent it."</h2>
-            <p>– Alan Kay</p>
+      <!-- Text Carousel -->
+      <div id="textCarousel" class="carousel slide text-carousel" data-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div>
+              <h2>"The best way to predict the future is to invent it."</h2>
+              <p>– Alan Kay</p>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div>
-            <h2>"Life is 10% what happens to us and 90% how we react to it."</h2>
-            <p>– Charles R. Swindoll</p>
+          <div class="carousel-item">
+            <div>
+              <h2>"Life is 10% what happens to us and 90% how we react to it."</h2>
+              <p>– Charles R. Swindoll</p>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div>
-            <h2>"Simplicity is the ultimate sophistication."</h2>
-            <p>– Leonardo da Vinci</p>
+          <div class="carousel-item">
+            <div>
+              <h2>"Simplicity is the ultimate sophistication."</h2>
+              <p>– Leonardo da Vinci</p>
+            </div>
           </div>
         </div>
       </div>
@@ -168,6 +228,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
   <script>
     $(document).ready(function () {
+      $('#carouselExampleSlidesOnly').carousel({
+        interval: 4000
+      });
+
+      $('#textCarousel').carousel({
+        interval: false
+      });
+
       $('#carouselExampleSlidesOnly').on('slide.bs.carousel', function (e) {
         var nextIndex = $(e.relatedTarget).index();
         $('#textCarousel').carousel(nextIndex);

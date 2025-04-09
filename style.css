@@ -4,76 +4,73 @@
     font-weight: normal;
     font-style: normal;
 }
-#param
-{
-    color: #000000
-}
-#ojas
-{
-    color: black
-}
-#drisha
-{
-    color: #000000
-}
-#pratham
-{
-    color: black
+
+:root {
+    --bgc: #111542;
+    --neon-blue: #02f8fc;
+    --neon-pink: #f800f1;
+    --base-font: #d1d8e0;
+    --padding: 1.5rem;
+    --radius: 1.25rem;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* General Page Styling */
 body {
-    background-color: #111542; /* Updated background color */
+    font-family: "tektur", sans-serif;
+    font-weight: bolder;
+    background: url('_.gif') no-repeat center center fixed;
+    background-color: var(--bgc);
+    background-size: cover;
     overflow-x: hidden;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
 }
-p{
-    font-size: x-small;
+
+p {
+    font-size: 0.75rem;
 }
-/* Container Styling */
+
+/* Name Container */
 #namecontain {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 2%;
     transform: translateY(-50%);
-    width: auto;
-    display: flex;
-    flex-direction: column; /* Ensures boxes appear below each other */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ensures only one name is visible */
-    padding: 20px; /* Added padding for spacing */
-    gap: 20px; /* Adds spacing between boxes */
-    border: 3px solid rgb(0, 0, 0);
-
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background for neon effect */
-}
-
-/* Box Styling */
-.main {
-    height: 150px;
-    width: 300px;
-    color: #d1d8e0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border: 0.2rem solid black;
+    border-radius: var(--radius);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Boxes */
+.main {
+    height: 9.375rem;
+    width: 90%;
+    max-width: 18.75rem;
+    color: var(--base-font);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.25rem;
     font-weight: bold;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
     animation: fadeIn 1s ease-in forwards;
+    text-shadow: 0 0 0.9375rem var(--base-font), 0 0 1.875rem var(--base-font);
+    transition: text-shadow 0.2s ease-in-out;
 }
 
 .main:nth-child(1) { animation-delay: 0.5s; }
@@ -81,257 +78,162 @@ p{
 .main:nth-child(3) { animation-delay: 1.5s; }
 .main:nth-child(4) { animation-delay: 2s; }
 
+.main:hover {
+    text-shadow: 0 0 0.9375rem var(--base-font), 0 0 1.875rem var(--base-font), 0 0 3.125rem #6562654a;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(2.5rem);
     }
     to {
-        opacity: 1; /* Full opacity after animation */
+        opacity: 1;
         transform: translateY(0);
     }
 }
-.main{
-    /* border: 3px solid var(--neon-blue);
-    border-radius: 20px; */
-    color: #d1d8e0;
-    text-shadow: 0 0 15px #d1d8e0, 0 0 30px #d1d8e0;
-    transition: text-shadow 0.2s ease-in-out;
- 
-    &:hover {
-    text-shadow: 0 0 15p#d1d8e0, 0 0 30px #d1d8e0, 0 0 50px #6562654a;
-}
-}
 
-@import url(https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Tektur:wght@400..900&display=swap);
-
-:root{
-    --bgc: #111542; /*dark blue for background*/
-    --neon-blue: #02f8fc;
-    --neon-pink: #f800f1;
-    --base-font: #d1d8e0;   
-}
-
+/* Glowing Site Title */
 .Name {
     position: absolute;
     top: 40%;
-    left: 50%; /* Move slightly right */
+    left: 50%;
     transform: translate(-50%, -50%);
-    overflow: visible;
-    padding-left: 10px; /* Give space to avoid cutting */
-    letter-spacing: 2px;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 150px;
+    font-size: 9.375rem;
     font-family: "BatmanForever", sans-serif;
-    color: #000000; /* ✅ White website name */
+    text-align: center;
+    color: black;
     text-transform: uppercase;
     white-space: nowrap;
-
-    /* ⚡ Controlled Neon Glow */
-    text-shadow: 
-        0 0 15px var(--neon-pink), 
-        0 0 30px var(--neon-pink), 
-        0 0 50px var(--neon-pink);
-
+    text-shadow:
+        0 0 0.9375rem var(--neon-pink),
+        0 0 1.875rem var(--neon-pink),
+        0 0 3.125rem var(--neon-pink);
     animation: neonPulse 1.5s infinite alternate ease-in-out;
 }
 
-/* 🔥 Reduced Neon Flicker Effect */
 @keyframes neonPulse {
-    0% { 
-        text-shadow: 
-            0 0 5px var(--neon-pink), 
-            0 0 10px var(--neon-pink), 
-            0 0 20px var(--neon-pink);
+    0% {
+        text-shadow: 0 0 0.3125rem var(--neon-pink),
+                     0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink);
     }
-    50% { 
-        text-shadow: 
-            0 0 10px var(--neon-pink), 
-            0 0 20px var(--neon-pink), 
-            0 0 40px var(--neon-pink); 
+    50% {
+        text-shadow: 0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink),
+                     0 0 2.5rem var(--neon-pink);
     }
-    100% { 
-        text-shadow: 
-            0 0 5px var(--neon-pink), 
-            0 0 10px var(--neon-pink), 
-            0 0 20px var(--neon-pink);
+    100% {
+        text-shadow: 0 0 0.3125rem var(--neon-pink),
+                     0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink);
     }
 }
+
+/* Glowing Tagline */
 .Punchline {
-    font-size: 30px;
-    color: var(--neon-blue);
-    transition: text-shadow 0.2s ease-in-out;
-    position: absolute;
-    
+    font-size: 1.875rem;
+    font-family: "BatmanForever", sans-serif;
+    color: black;
     text-align: center;
-    margin-top: 10px; /* Add some space below the website name */
-    display: block; /* Ensures it behaves as a separate element */
+    white-space: nowrap;
     position: absolute;
     right: 25%;
-    color: #000000; /* ✅ White website name */
     text-transform: uppercase;
-    white-space: nowrap;
-
-    /* ⚡ Controlled Neon Glow */
-    text-shadow: 
-        0 0 5px var(--neon-pink), 
-        0 0 5px var(--neon-pink), 
-        0 0 50px var(--neon-pink);
-    font-family: 'BatmanForever', sans-serif; /* Updated font */
+    text-shadow:
+        0 0 0.3125rem var(--neon-pink),
+        0 0 0.3125rem var(--neon-pink),
+        0 0 3.125rem var(--neon-pink);
 }
 
-
-body {
-    font-family: "tektur", sans-serif;
-    font-weight: bolder;    
-    background-color: #111542;
-    
-}
-
-.entry .Name {
-    font-size: 60px;
-    font-weight: bold;
-    color: var(--neon-blue);
-    text-align: center;
-    animation: neonGlow 1.5s infinite alternate ease-in-out;
-}
-
-
-/* body *{
-    margin: 3px;
-} */
-
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
-
-/* 🔥 Hide Default Cursor */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #000000;
-    font-family: "BatmanForever", sans-serif;
-    overflow: hidden;
-    position: relative;
-}
-
-/* 🔥 Counter Container */
-.counter-container {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* 🔥 Neon Heading */
-.neon-text {
-    font-size: 35px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgb(0, 0, 0);
-    animation: neonGlow 1.5s infinite alternate;
-
-    /* Updated Neon Glow */
-    text-shadow: 
-        0 0 5px var(--neon-pink), 
-        0 0 5px var(--neon-pink), 
-        0 0 50px var(--neon-pink);
-        -webkit-text-stroke: 0.2px #ffffff;
-        text-stroke: 1px #ffffff;
-        display: inline-block; /* Ensures proper visibility */
-        opacity: 1;
-    font-family: 'BatmanForever', sans-serif;
-}
-
-/* 🔥 Floating Neon Numbers */
-.counter {
-    display: flex;
-    justify-content: center;
-    gap: 2px;
-    visibility: visible; /* Ensures visibility */
-}
-
-/* 🔥 Digit Styling */
-.digit {
-    
-    font-size: 70px;
-    font-weight: 580;
-    font-family: "BatmanForever", sans-serif; /* Updated font */
-    line-height: 80px;
-    transition: transform 0.4s ease-out;
-    transform: translateY(0); /* Adjusted to prevent disappearing effect */
-    color: rgb(0, 0, 0);
-    text-shadow: 
-        0 0 5px var(--neon-pink), 
-        0 0 5px var(--neon-pink), 
-        0 0 50px var(--neon-pink);
-    -webkit-text-stroke: 1px #ffffff;
-    text-stroke: 1px #ffffff;
-    display: inline-block; /* Ensures proper visibility */
-    opacity: 1; /* Makes sure digits are fully visible */
-}
-
-
-body {
-    background: url('_.gif') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.Name, .Punchline {
-    max-width: 100%;
-    overflow: hidden;
-}
-
+/* Button */
 #expbtn {
-    position: relative;
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
     font-family: "BatmanForever", sans-serif;
     color: var(--neon-pink);
-    background: rgba(248, 0, 241, 0.1); /* Slight pink glow inside */
-    border: 2px solid var(--neon-pink);
-    border-radius: 10px;
-    box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink);
+    background: rgba(248, 0, 241, 0.1);
+    border: 0.125rem solid var(--neon-pink);
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.9375rem var(--neon-pink), 0 0 1.875rem var(--neon-pink);
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-top: 100%;
-  }
-  
-  /* 🔥 Animated Neon Flicker */
-  @keyframes neon-flicker {
-    0% { box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
-    50% { box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink); }
-    100% { box-shadow: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
-  }
-  
-  /* 🔥 Hover Effect: Stronger Glow */
-  #expbtn:hover {
+    margin-top: 15rem;
+}
+
+#expbtn:hover {
     background: var(--neon-pink);
-    color: #111542; /* Dark mode contrast */
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-    box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 60px var(--neon-pink);
+    color: var(--bgc);
+    text-shadow: 0 0 0.625rem #fff, 0 0 1.25rem #fff;
+    box-shadow: 0 0 1.25rem var(--neon-pink), 0 0 2.5rem var(--neon-pink), 0 0 3.75rem var(--neon-pink);
     animation: neon-flicker 0.3s infinite alternate;
-  }
-  
-  /* 🔥 Active Click Effect */
-  #expbtn:active {
+}
+
+@keyframes neon-flicker {
+    0%, 100% {
+        box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.9375rem var(--neon-pink), 0 0 1.875rem var(--neon-pink);
+    }
+    50% {
+        box-shadow: 0 0 0.625rem var(--neon-pink), 0 0 1.25rem var(--neon-pink), 0 0 2.5rem var(--neon-pink);
+    }
+}
+
+#expbtn:active {
     transform: scale(0.95);
-    box-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
-  }
+    box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.625rem var(--neon-pink), 0 0 1.25rem var(--neon-pink);
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* Counter */
+.counter-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
 
-  
+.neon-text {
+    font-size: 2.1875rem;
+    font-weight: 600;
+    color: black;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 0.3125rem var(--neon-pink),
+        0 0 0.3125rem var(--neon-pink),
+        0 0 3.125rem var(--neon-pink);
+    -webkit-text-stroke: 0.0125rem #fff;
+    text-stroke: 0.0625rem #fff;
+    font-family: 'BatmanForever', sans-serif;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 0.125rem;
+}
+
+.digit {
+    font-size: 4.375rem;
+    font-weight: 580;
+    color: black;
+    font-family: "BatmanForever", sans-serif;
+    line-height: 5rem;
+    transition: transform 0.4s ease-out;
+    text-shadow:
+        0 0 0.3125rem var(--neon-pink),
+        0 0 0.3125rem var(--neon-pink),
+        0 0 3.125rem var(--neon-pink);
+    -webkit-text-stroke: 0.0625rem #fff;
+    text-stroke: 0.0625rem #fff;
+}
+
+/* Font Color IDs */
+#param, #drisha, #ojas, #pratham {
+    color: black;
+}
