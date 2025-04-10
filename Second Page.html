@@ -313,6 +313,15 @@
     const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime(); // Change this to your event date
     startCountdown(eventDate);
   </script>
-
+  <script>
+    const imageCarousel = $('#carouselExampleSlidesOnly');
+    const textCarousel = $('#textCarousel');
+  
+    imageCarousel.on('slide.bs.carousel', function (e) {
+      const nextIndex = $(e.relatedTarget).index();
+      textCarousel.carousel(nextIndex);
+    });
+  </script>
+  
 </body>
 </html>
