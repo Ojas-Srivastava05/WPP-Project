@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Welcome to Clubify</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(
+                    to right,
+                    rgba(248, 0, 241, 0.1),
+                    rgba(248, 0, 241, 0.1) 1px,
+                    transparent 1px,
+                    transparent 40px
+                ),
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(248, 0, 241, 0.1),
+                    rgba(248, 0, 241, 0.1) 1px,
+                    transparent 1px,
+                    transparent 40px
+                );
+            opacity: 0.2;
+            z-index: -2;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.9; }
+            85% { opacity: 0.6; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { text-shadow: 0 0 10px #f800f1, 0 0 20px #f800f1; }
+            50% { text-shadow: 0 0 20px #f800f1, 0 0 30px #f800f1; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(248, 0, 241, 0.3);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #f800f1;
+            text-shadow: 0 0 10px #f800f1, 0 0 20px #f800f1;
+            margin-bottom: 20px;
+            animation: flicker 3s infinite, pulseGlow 4s ease-in-out infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-shadow: 0 0 5px #f800f1;
+            margin-bottom: 40px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            background: #1a001a;
+            color: #ffffff;
+            border: 2px solid #f800f1;
+            box-shadow: 0 0 6px #f800f1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            text-shadow: 0 0 5px #f800f1;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            border-radius: 5px;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #f800f1, #1a001a, #f800f1);
+            opacity: 0.9;
+            animation: borderGlow 2s linear infinite;
+            background-size: 400% 400%;
+            filter: blur(1.5px);
+            z-index: -1;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .btn:hover {
+            background: #f800f1;
+            color: #1a001a;
+            box-shadow: 0 0 12px #f800f1, 0 0 24px #f800f1;
+            transform: scale(1.05);
+        }
+
+        .glow-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f800f1, transparent 60%);
+            top: -100px;
+            right: -100px;
+            z-index: -2;
+            filter: blur(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-circle"></div>
+    <div class="container">
+        <h1>Clubify</h1>
+        <p>Your gateway to exclusive clubs and events!</p>
+        <div class="btn-group">
+            <a href="/signup/" class="btn">Sign Up</a>
+            <a href="/signin/" class="btn">Sign In</a>
+            <a href="/signout/" class="btn">Sign Out</a>
+        </div>
+    </div>
+</body>
+</html>

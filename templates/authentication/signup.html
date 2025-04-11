@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sign Up - Clubify</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(248, 0, 241, 0.3);
+            animation: floatIn 1s ease-out;
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes floatIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #f800f1;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #f800f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff99e6;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f800f1;
+            background: transparent;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            box-shadow: 0 0 8px #f800f1;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: #f800f1;
+            border: 2px solid #f800f1;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button:hover {
+            background: #ff66d9;
+            color: #000;
+            box-shadow: 0 0 10px #ff66d9;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, #ff66d9 10%, transparent 10.01%);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0.5;
+            transition: transform 0.5s, opacity 0.5s;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+        }
+
+        button span {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Create Your Clubify Account</h2>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" required />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" required />
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="8"
+                       pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$"
+                       title="Password must be at least 8 characters and include letters and numbers." />
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required minlength="8"
+                       title="Please confirm your password." />
+            </div>
+            <button type="submit"><span>Sign Up</span></button>
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm_password");
+
+        form.addEventListener("submit", function (e) {
+            if (password.value !== confirmPassword.value) {
+                e.preventDefault();
+                alert("Passwords do not match. Please try again.");
+                confirmPassword.focus();
+            }
+        });
+    </script>
+</body>
+</html>
