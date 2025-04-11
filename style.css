@@ -69,7 +69,7 @@ p {
     opacity: 0;
     transform: translateY(1.25rem);
     animation: fadeIn 1s ease-in forwards;
-    text-shadow: 0 0 0.9375rem var(--base-font), 0 0 1.875rem var(--base-font);
+    text-shadow: 0 0 0.625rem var(--base-font), 0 0 1.25rem var(--base-font);
     transition: text-shadow 0.2s ease-in-out;
 }
 
@@ -79,7 +79,7 @@ p {
 .main:nth-child(4) { animation-delay: 2s; }
 
 .main:hover {
-    text-shadow: 0 0 0.9375rem var(--base-font), 0 0 1.875rem var(--base-font), 0 0 3.125rem #6562654a;
+    text-shadow: 0 0 0.625rem var(--base-font), 0 0 1.25rem var(--base-font), 0 0 2rem #6562654a;
 }
 
 @keyframes fadeIn {
@@ -106,10 +106,11 @@ p {
     text-transform: uppercase;
     white-space: nowrap;
     text-shadow:
-        0 0 0.9375rem var(--neon-pink),
-        0 0 1.875rem var(--neon-pink),
-        0 0 3.125rem var(--neon-pink);
+        0 0 0.625rem var(--neon-pink),
+        0 0 1.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
     animation: neonPulse 1.5s infinite alternate ease-in-out;
+    will-change: text-shadow, transform;
 }
 
 @keyframes neonPulse {
@@ -141,9 +142,10 @@ p {
     right: 25%;
     text-transform: uppercase;
     text-shadow:
-        0 0 0.3125rem var(--neon-pink),
-        0 0 0.3125rem var(--neon-pink),
-        0 0 3.125rem var(--neon-pink);
+        0 0 0.25rem var(--neon-pink),
+        0 0 0.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
+    will-change: text-shadow, transform;
 }
 
 /* Button */
@@ -204,12 +206,13 @@ p {
     letter-spacing: 0.125rem;
     text-transform: uppercase;
     text-shadow:
-        0 0 0.3125rem var(--neon-pink),
-        0 0 0.3125rem var(--neon-pink),
-        0 0 3.125rem var(--neon-pink);
+        0 0 0.25rem var(--neon-pink),
+        0 0 0.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
     -webkit-text-stroke: 0.0125rem #fff;
     text-stroke: 0.0625rem #fff;
     font-family: 'BatmanForever', sans-serif;
+    will-change: text-shadow;
 }
 
 .counter {
@@ -231,6 +234,7 @@ p {
         0 0 3.125rem var(--neon-pink);
     -webkit-text-stroke: 0.0625rem #fff;
     text-stroke: 0.0625rem #fff;
+    will-change: transform, text-shadow;
 }
 
 /* Font Color IDs */
