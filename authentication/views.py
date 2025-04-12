@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.urls import reverse  # Import reverse
 
 # Home Page
 def index(request):
@@ -10,6 +11,9 @@ def index(request):
 
 def second_page(request):
     return render(request,'authentication/Second Page.html')
+
+def login_view(request):
+    return render(request,'authentication/login.html')
 
 # Sign-Up View
 def signup(request):
@@ -40,14 +44,28 @@ def signup(request):
         myuser.save()
 
         messages.success(request, "Your account has been successfully created.")
-        return redirect('signin')
-    
-    # For GET request, render the signup form
+        return redirect('second_page')
+
+    if request.method == "GET":
+        storage = get_messages(request)
+        for _ in storage:
+            pass  # ✅ Now safely inside the GET block
+
     return render(request, 'authentication/signup.html')
 
 # Sign-In View
-def signin(request):
-    if request.method == "POST":
+from django.contrib.messages import get_messages
+from django.contrib.auth import authenticate, login
+
+def signin_view(request):
+    if request.method == "GET":
+        # Clear old messages (optional, for cleaner UX)
+        storage = get_messages(request)
+        for _ in storage:
+            pass
+        return render(request, 'authentication/signin.html')
+
+    elif request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
 
@@ -55,14 +73,8 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, "Successfully signed in.")
-            return redirect('home')
+            messages.success(request, "Successfully signed in!")
+            return redirect('second_page')
         else:
             messages.error(request, "Invalid username or password.")
-            return redirect('signin')
-
-    return redirect('second_page')
-
-# Sign-Out Placeholder
-def signout(request):
-    pass
+            return render(request, 'authentication/signin.html')
