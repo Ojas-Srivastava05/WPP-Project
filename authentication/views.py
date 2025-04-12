@@ -5,8 +5,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
 # Home Page
-def home(request):
+def index(request):
     return render(request, "authentication/index.html")
+
+def second_page(request):
+    return render(request,'authentication/Second Page.html')
 
 # Sign-Up View
 def signup(request):
@@ -38,8 +41,9 @@ def signup(request):
 
         messages.success(request, "Your account has been successfully created.")
         return redirect('signin')
-
-    return render(request, "authentication/signup.html")
+    
+    # For GET request, render the signup form
+    return render(request, 'authentication/signup.html')
 
 # Sign-In View
 def signin(request):
@@ -57,7 +61,7 @@ def signin(request):
             messages.error(request, "Invalid username or password.")
             return redirect('signin')
 
-    return render(request, "authentication/signin.html")
+    return redirect('second_page')
 
 # Sign-Out Placeholder
 def signout(request):

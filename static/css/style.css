@@ -1,0 +1,243 @@
+@font-face {
+    font-family: 'BatmanForever';
+    src: url('batmfa__.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bgc: #111542;
+    --neon-blue: #02f8fc;
+    --neon-pink: #f800f1;
+    --base-font: #d1d8e0;
+    --padding: 1.5rem;
+    --radius: 1.25rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Page Styling */
+body {
+    font-family: "tektur", sans-serif;
+    font-weight: bolder;
+    background: url('_.gif') no-repeat center center fixed;
+    background-color: var(--bgc);
+    background-size: cover;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+p {
+    font-size: 0.75rem;
+}
+
+/* Name Container */
+#namecontain {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border: 0.2rem solid black;
+    border-radius: var(--radius);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Boxes */
+.main {
+    height: 9.375rem;
+    width: 90%;
+    max-width: 18.75rem;
+    color: var(--base-font);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0.625rem;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    animation: fadeIn 1s ease-in forwards;
+    text-shadow: 0 0 0.625rem var(--base-font), 0 0 1.25rem var(--base-font);
+    transition: text-shadow 0.2s ease-in-out;
+}
+
+.main:nth-child(1) { animation-delay: 0.5s; }
+.main:nth-child(2) { animation-delay: 1s; }
+.main:nth-child(3) { animation-delay: 1.5s; }
+.main:nth-child(4) { animation-delay: 2s; }
+
+.main:hover {
+    text-shadow: 0 0 0.625rem var(--base-font), 0 0 1.25rem var(--base-font), 0 0 2rem #6562654a;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glowing Site Title */
+.Name {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9.375rem;
+    font-family: "BatmanForever", sans-serif;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow:
+        0 0 0.625rem var(--neon-pink),
+        0 0 1.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
+    animation: neonPulse 1.5s infinite alternate ease-in-out;
+    will-change: text-shadow, transform;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 0.3125rem var(--neon-pink),
+                     0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink);
+    }
+    50% {
+        text-shadow: 0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink),
+                     0 0 2.5rem var(--neon-pink);
+    }
+    100% {
+        text-shadow: 0 0 0.3125rem var(--neon-pink),
+                     0 0 0.625rem var(--neon-pink),
+                     0 0 1.25rem var(--neon-pink);
+    }
+}
+
+/* Glowing Tagline */
+.Punchline {
+    font-size: 1.875rem;
+    font-family: "BatmanForever", sans-serif;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    right: 25%;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 0.25rem var(--neon-pink),
+        0 0 0.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
+    will-change: text-shadow, transform;
+}
+
+/* Button */
+#expbtn {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-family: "BatmanForever", sans-serif;
+    color: var(--neon-pink);
+    background: rgba(248, 0, 241, 0.1);
+    border: 0.125rem solid var(--neon-pink);
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.9375rem var(--neon-pink), 0 0 1.875rem var(--neon-pink);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15rem;
+}
+
+#expbtn:hover {
+    background: var(--neon-pink);
+    color: var(--bgc);
+    text-shadow: 0 0 0.625rem #fff, 0 0 1.25rem #fff;
+    box-shadow: 0 0 1.25rem var(--neon-pink), 0 0 2.5rem var(--neon-pink), 0 0 3.75rem var(--neon-pink);
+    animation: neon-flicker 0.3s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 100% {
+        box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.9375rem var(--neon-pink), 0 0 1.875rem var(--neon-pink);
+    }
+    50% {
+        box-shadow: 0 0 0.625rem var(--neon-pink), 0 0 1.25rem var(--neon-pink), 0 0 2.5rem var(--neon-pink);
+    }
+}
+
+#expbtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 0.3125rem var(--neon-pink), 0 0 0.625rem var(--neon-pink), 0 0 1.25rem var(--neon-pink);
+}
+
+/* Counter */
+.counter-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.neon-text {
+    font-size: 2.1875rem;
+    font-weight: 600;
+    color: black;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 0.25rem var(--neon-pink),
+        0 0 0.25rem var(--neon-pink),
+        0 0 2rem var(--neon-pink);
+    -webkit-text-stroke: 0.0125rem #fff;
+    text-stroke: 0.0625rem #fff;
+    font-family: 'BatmanForever', sans-serif;
+    will-change: text-shadow;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 0.125rem;
+}
+
+.digit {
+    font-size: 4.375rem;
+    font-weight: 580;
+    color: black;
+    font-family: "BatmanForever", sans-serif;
+    line-height: 5rem;
+    transition: transform 0.4s ease-out;
+    text-shadow:
+        0 0 0.3125rem var(--neon-pink),
+        0 0 0.3125rem var(--neon-pink),
+        0 0 3.125rem var(--neon-pink);
+    -webkit-text-stroke: 0.0625rem #fff;
+    text-stroke: 0.0625rem #fff;
+    will-change: transform, text-shadow;
+}
+
+/* Font Color IDs */
+#param, #drisha, #ojas, #pratham {
+    color: black;
+}
