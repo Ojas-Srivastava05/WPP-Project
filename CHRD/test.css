@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     background-image: url("background5.jpg");
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -66,7 +67,7 @@ main {
 
 /* Upcoming Event Showcase */
 .event-showcase {
-    background: white;
+    background: rgb(0,0,0,0.6);
     margin: 2rem auto;
     max-width: 1152px;
     border-radius: 0.75rem;
@@ -155,12 +156,12 @@ main {
   .event-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #111827;
+    color: white;
     margin-bottom: 1rem;
   }
   
   .event-description {
-    color: #4b5563;
+    color: white;
     margin-bottom: 1.5rem;
   }
   
@@ -173,7 +174,7 @@ main {
   .info-item {
     display: flex;
     align-items: center;
-    color: #4b5563;
+    color: white;
   }
   
   .info-item svg {
@@ -251,12 +252,12 @@ main {
   
   .event-date {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: white;
     margin-bottom: 0.75rem;
   }
   
   .event-desc {
-    color: #4b5563;
+    color: white;
     line-height: 1.5;
   }
   
