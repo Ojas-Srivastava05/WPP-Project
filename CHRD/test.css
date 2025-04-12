@@ -1,4 +1,16 @@
 /* General Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+  --bgc: #111542;
+  --neon-blue: #02f8fc;
+  --neon-pink: #f800f1;
+  --base-font: #d1d8e0;
+  --padding: 1.5rem;
+  --radius: 1.25rem;
+}
+
 body {
     margin: 0;
     font-family: 'Orbitron', 'Bebas Neue', sans-serif;
@@ -38,11 +50,7 @@ header div {
     padding: 0px;
     transform: scale(60%);
 }
-
-
-
-
-
+/* HEADER ENDS */
 
 
 
@@ -65,9 +73,9 @@ main {
 
 
 
-/* Upcoming Event Showcase */
+/*UPCOMING EVENTS*/
 .event-showcase {
-    background: rgb(0,0,0,0.6);
+    background: #040700c9;
     margin: 2rem auto;
     max-width: 1152px;
     border-radius: 0.75rem;
@@ -137,6 +145,8 @@ main {
     background: white;
   }
   
+
+
   /* Event Details */
   .event-details {
     padding: 2rem;
@@ -145,24 +155,31 @@ main {
   .event-tag {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: #dbeafe;
-    color: #2563eb;
+    /* background: #dbeafe; */
+    color: white;
+    text-shadow: 0 0 1rem var(--neon-pink), 0 0 2rem var(--neon-pink), 0 0 3rem var(--neon-pink);
     border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 900;
     margin-bottom: 1rem;
   }
   
   .event-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--neon-blue);
+    text-shadow: 0 0 1rem #02f8fc, 0 0 2rem #02f8fc;
     margin-bottom: 1rem;
+    padding: 5px;
+
+    
   }
   
   .event-description {
-    color: white;
+    color: var(--neon-pink);
     margin-bottom: 1.5rem;
+    text-shadow: 0 0 1rem #f800f1, 0 0 2rem #f800f1;
+    font-weight: 400;
   }
   
   .event-info {
@@ -175,6 +192,7 @@ main {
     display: flex;
     align-items: center;
     color: white;
+
   }
   
   .info-item svg {
@@ -184,8 +202,8 @@ main {
   .register-btn {
     margin-top: 2rem;
     padding: 0.75rem 1.5rem;
-    background: #2563eb;
-    color: white;
+    background: #02f8fc;
+    color: black;
     border: none;
     border-radius: 0.5rem;
     font-weight: 500;
@@ -194,13 +212,14 @@ main {
   }
   
   .register-btn:hover {
-    background: #1d4ed8;
+    color: white;
+    background: #f800f1;
   }
+/*UPCOMING EVENTS PART ENDS */
 
 
-  /* For the Previous events Part */
-  /* Previous Events */
-.previous-events {
+  /*REVIOUS EVENTS/HIGHLIGHTS*/
+  .previous-events {
     padding: 3rem 0;
     /* background: #f9fafb; */
   }
@@ -208,7 +227,8 @@ main {
   .section-title {
     font-size: 1.875rem;
     font-weight: bold;
-    color: white;
+    color: #02f8fc;
+    text-shadow: 0 0 1rem #02f8fc, 0 0 2rem #02f8fc;
     margin-bottom: 2rem;
   }
   
@@ -226,10 +246,25 @@ main {
     align-items: start;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    animation: appeare 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
   }
   
   .event-item:hover {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes appeare{
+    from{
+      opacity: 0;
+      scale: 0.4;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
   }
   
   .event-item img {
@@ -246,7 +281,8 @@ main {
   .event-content h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: white;
+    color: #f800f1;
+    text-shadow: 0 0 1rem #f800f1, 0 0 2rem #f800f1;
     margin-bottom: 0.5rem;
   }
   
@@ -274,15 +310,18 @@ main {
   /* Previous events part ends */
 
 
+
+/* CLUB DESCRIPTION */
   .description-area{
-    background-color: #f4f4f433;
+    color: white;
+    background: #040700c9;
     width: 90%;
     max-width: 800px;
     margin: 10px 0;
     padding: 20px;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 5px; */
 }
 
 
@@ -300,23 +339,23 @@ main {
 
 
 .feedback-button button {
-    background-color: #007bff;
-    color: rgb(255, 255, 255);
-    border: none;
+    background-color: black;
+    color: #d1d8e0;
+    /* border: none; */
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .feedback-button button:hover {
-    background-color: #0056b3;
+    box-shadow: 0 0 1rem #02f8fc, 0 0 1rem #02f8fc;
 }
 
 
 
 /* Footer */
 .footer {
-    background-color: #24262b;
+    background-color: black;
     padding: 20px 0;
 }
 
@@ -327,7 +366,7 @@ main {
 
 .footer-col h4 {
     font-size: 18px;
-    color: #ffffff;
+    color: #02f8fc;
     text-transform: capitalize;
     margin-bottom: 35px;
     font-weight: 500;
