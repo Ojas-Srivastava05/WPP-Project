@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.urls import reverse  # Import reverse
 from django.views import View
 from django.contrib.auth import logout
-from django.contrib import messages
+
 
 # Home Page
 def index(request):

@@ -52,6 +52,7 @@
       flex: 1;
     }
 
+    /* Sidebar */
     .sidebar {
       position: relative;
       height: 100vh;
@@ -68,6 +69,7 @@
       width: var(--sidebar-expanded);
     }
 
+    /* Button Styles */
     .button {
       display: flex;
       align-items: center;
@@ -109,6 +111,24 @@
 
     .sidebar:not(:hover) .label {
       display: none;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+      background-color: #000;
+      border: 1px solid #02f8fc;
+      box-shadow: 0 0 10px #02f8fc, 0 0 20px #f800f1;
+    }
+    
+    .dropdown-item {
+      color: #f800f1;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(2, 248, 252, 0.1);
+      color: #02f8fc;
     }
 
     .main-content {
@@ -220,11 +240,19 @@
         <span class="icon">👥</span>
         <span class="label">My Clubs</span>
       </a>
-      <a href="#" class="button">
-        <span class="icon">🏛️</span>
-        <span class="label">Clubs</span>
-      </a>
-      <a href="#" class="button">
+      <!-- Dropdown Button -->
+      <div class="dropdown">
+        <button class="btn button dropdown-toggle" type="button" id="clubsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="icon">🏛️</span>
+          <span class="label">Clubs</span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="clubsDropdown">
+          <a class="dropdown-item" href="{% static 'drishti/test.html' %}">DRISHTI</a>
+          <a class="dropdown-item" href="{% static 'chrd/test.html' %}">CHRD</a>
+          <a class="dropdown-item" href="{% static 'cinephilia/test.html' %}">CINEPHILIA</a>
+        </div>
+      </div>
+      <a href="{% static 'events/test.html' %}" class="button">
         <span class="icon">🎊</span>
         <span class="label">Events</span>
       </a>
@@ -244,9 +272,6 @@
         <span class="icon">👋</span>
         <span class="label">Logout</span>
       </a>
-
-      
-
     </div>
 
     <!-- Main Content -->
@@ -321,18 +346,8 @@
       setInterval(updateCountdown, 1000);
     }
 
-    const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime(); // Change this to your event date
+    const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime();
     startCountdown(eventDate);
   </script>
-  <script>
-    const imageCarousel = $('#carouselExampleSlidesOnly');
-    const textCarousel = $('#textCarousel');
-  
-    imageCarousel.on('slide.bs.carousel', function (e) {
-      const nextIndex = $(e.relatedTarget).index();
-      textCarousel.carousel(nextIndex);
-    });
-  </script>
-  
 </body>
 </html>
