@@ -1,0 +1,46 @@
+<!-- templates/dashboard/dashboard.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    
+    <!-- Google Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Neon-themed dashboard CSS -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <h1>Welcome {{ user.username }}!</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <h2>Select Clubs</h2>
+        <ul>
+            {% for club in all_clubs %}
+                <li>
+                    <label>
+                        <input type="checkbox" name="clubs" value="{{ club.id }}"
+                        {% if club in user_clubs %}checked{% endif %}>
+                        {{ club.name }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Save Clubs</button>
+    </form>
+    
+    <section>
+        <h2>Your Clubs</h2>
+        <ul>
+            {% for club in user_clubs %}
+                <li>{{ club.name }} - {{ club.description }}</li>
+            {% empty %}
+                <li>You are not registered to any clubs yet.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
