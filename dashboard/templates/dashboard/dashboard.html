@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/styles.css' %}">
+</head>
+<body>
+    <h2>Welcome, {{ request.user.username }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <h3>Select Your Clubs:</h3>
+        {% for club in all_clubs %}
+            <label>
+                <input type="checkbox" name="clubs" value="{{ club.id }}"
+                    {% if club in user_clubs %}checked{% endif %}>
+                {{ club.name }}
+            </label><br>
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+
+    <h3>Your Clubs:</h3>
+    <ul>
+        {% for club in user_clubs %}
+            <li>{{ club.name }}</li>
+        {% empty %}
+            <li>No clubs selected.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

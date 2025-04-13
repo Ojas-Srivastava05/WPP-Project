@@ -1,0 +1,53 @@
+body {
+    background-color: #111111;
+    color: #f800f1;
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+}
+
+h2, h3 {
+    color: #f800f1;
+    text-shadow: 0 0 10px #f800f1, 0 0 20px #f800f1;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 5px #f800f1;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+    accent-color: #f800f1;
+}
+
+button {
+    background-color: transparent;
+    color: #f800f1;
+    border: 2px solid #f800f1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #f800f1;
+    box-shadow: 0 0 15px #f800f1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #f800f1;
+    color: black;
+    box-shadow: 0 0 25px #f800f1, 0 0 50px #f800f1;
+}
+
+ul li {
+    color: white;
+    text-shadow: 0 0 5px #f800f1;
+}

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'authentication',  # Add your authentication app here
+    'authentication',
+    'dashboard',# Add your authentication app here
 ]
 
 MIDDLEWARE = [
