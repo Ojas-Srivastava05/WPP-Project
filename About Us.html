@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+</head>
+<body style="
+  background: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+  background-size: cover;
+  color: pink; 
+  font-family: 'Segoe UI', sans-serif; 
+  text-align: center; 
+  padding: 50px;">
+
+  <h1 style="color: pink; margin-bottom: 40px;">Meet The Crew</h1>
+
+  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+
+    <!-- Repeating image with dropdown text box -->
+    <div class="hover-box" style="display: inline-block; text-align: center;">
+      <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid pink;">
+        <img src="https://via.placeholder.com/200" alt="Image 1"
+             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      </div>
+      <div class="dropdown" 
+           style="width: 300px; height: 0px; overflow: hidden; background-color: pink;
+                  transition: height 0.5s ease; color: black; font-weight: 600;
+                  border-radius: 10px; margin-top: 12px; max-height: 200px;">
+        <p class="typewriter-text" 
+           style="margin: 20px; font-size: 18px; white-space: normal; overflow-wrap: break-word; line-height: 1.4;"></p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="hover-box" style="display: inline-block; text-align: center;">
+      <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid pink;">
+        <img src="https://via.placeholder.com/200" alt="Image 2"
+             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      </div>
+      <div class="dropdown" 
+           style="width: 300px; height: 0px; overflow: hidden; background-color: pink;
+                  transition: height 0.5s ease; color: black; font-weight: 600;
+                  border-radius: 10px; margin-top: 12px; max-height: 200px;">
+        <p class="typewriter-text" 
+           style="margin: 20px; font-size: 18px; white-space: normal; overflow-wrap: break-word; line-height: 1.4;"></p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="hover-box" style="display: inline-block; text-align: center;">
+      <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid pink;">
+        <img src="https://via.placeholder.com/200" alt="Image 3"
+             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      </div>
+      <div class="dropdown" 
+           style="width: 300px; height: 0px; overflow: hidden; background-color: pink;
+                  transition: height 0.5s ease; color: black; font-weight: 600;
+                  border-radius: 10px; margin-top: 12px; max-height: 200px;">
+        <p class="typewriter-text" 
+           style="margin: 20px; font-size: 18px; white-space: normal; overflow-wrap: break-word; line-height: 1.4;"></p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="hover-box" style="display: inline-block; text-align: center;">
+      <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid pink;">
+        <img src="https://via.placeholder.com/200" alt="Image 4"
+             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      </div>
+      <div class="dropdown" 
+           style="width: 300px; height: 0px; overflow: hidden; background-color: pink;
+                  transition: height 0.5s ease; color: black; font-weight: 600;
+                  border-radius: 10px; margin-top: 12px; max-height: 200px;">
+        <p class="typewriter-text" 
+           style="margin: 20px; font-size: 18px; white-space: normal; overflow-wrap: break-word; line-height: 1.4;"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const hoverBoxes = document.querySelectorAll('.hover-box');
+    const messages = [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.",
+      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
+    ];
+
+    hoverBoxes.forEach((box, index) => {
+      const dropdown = box.querySelector('.dropdown');
+      const textEl = box.querySelector('.typewriter-text');
+      const message = messages[index];
+      let typingTimer;
+
+      box.addEventListener('mouseover', () => {
+        dropdown.style.height = '200px';
+        textEl.textContent = '';
+        let i = 0;
+        clearInterval(typingTimer);
+        typingTimer = setInterval(() => {
+          if (i < message.length) {
+            textEl.textContent += message.charAt(i);
+            i++;
+          } else {
+            clearInterval(typingTimer);
+          }
+        }, 50);
+      });
+
+      box.addEventListener('mouseout', () => {
+        dropdown.style.height = '0px';
+        clearInterval(typingTimer);
+        textEl.textContent = '';
+      });
+    });
+  </script>
+
+</body>
+</html>
