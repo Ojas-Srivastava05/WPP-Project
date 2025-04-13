@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.urls import reverse  # Import reverse
+from django.views import View
+from django.contrib.auth import logout
+from django.contrib import messages
 
 # Home Page
 def index(request):
@@ -78,3 +81,10 @@ def signin_view(request):
         else:
             messages.error(request, "Invalid username or password.")
             return render(request, 'authentication/signin.html')
+
+from django.contrib.auth.views import LogoutView
+
+class CustomLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('home')  # This does the redirection
