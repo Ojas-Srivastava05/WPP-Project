@@ -26,4 +26,5 @@ urlpatterns = [
     path('',include('authentication.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path('stream/',include('streamapp.urls')),
 ]
