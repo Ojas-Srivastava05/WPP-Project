@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #0d0d1a;
+            background-color: #111152;
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
             margin: 0;
@@ -27,7 +27,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 40px;
-            text-shadow: 0 0 5px #f800f1;
+            text-shadow: 0 0 5px #f800f1, 0 0 10px #f800f1;
         }
 
         @keyframes fadeInUp {
@@ -57,6 +57,7 @@
             width: 320px;
             height: 240px;
             background-color: #000000;
+            cursor: pointer;
         }
 
         .stream-container img:hover {
@@ -64,15 +65,39 @@
             box-shadow: 0 0 20px #02f8fc, 0 0 40px #02f8fc, 0 0 60px #f800f1;
             animation: pulse 1s infinite alternate;
         }
+
+        /* Fullscreen Styles */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <h1>LIVE STREAM</h1>
     <div class="stream-container">
-        <img src="http://172.20.10.2:8080/video" alt="Live Stream 1">
-        <img src="http://172.20.10.2:8080/video" alt="Live Stream 2">
-        <img src="http://172.20.10.2:8080/video" alt="Live Stream 3">
-        <img src="http://172.20.10.2:8080/video" alt="Live Stream 4">
+        <img src="http://172.20.10.2:8080/video" alt="Live Stream 1" onclick="openFullscreen(this)">
+        <img src="http://172.20.10.2:8080/video" alt="Live Stream 2" onclick="openFullscreen(this)">
+        <img src="http://172.20.10.2:8080/video" alt="Live Stream 3" onclick="openFullscreen(this)">
+        <img src="http://172.20.10.2:8080/video" alt="Live Stream 4" onclick="openFullscreen(this)">
     </div>
+
+    <script>
+        function openFullscreen(imgElement) {
+            if (imgElement.requestFullscreen) {
+                imgElement.requestFullscreen();
+            } else if (imgElement.mozRequestFullScreen) { // Firefox
+                imgElement.mozRequestFullScreen();
+            } else if (imgElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                imgElement.webkitRequestFullscreen();
+            } else if (imgElement.msRequestFullscreen) { // IE/Edge
+                imgElement.msRequestFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
