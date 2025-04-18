@@ -5,71 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clubify</title>
-    
-   
-    
+
     <!-- Link the CSS file -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-
 </head>
 <body>
+
     {% if messages %}
-  <div class="message-box">
-    {% for message in messages %}
-      <div class="message {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-  </div>
-{% endif %}
+    <div class="message-box">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div id="namecontain">
 
         <div id="pratham" class="main">
-        PRATHAM PATADIYA
-        <p>Passionate backend developers skilled in building scalable, efficient, and secure server-side solutions. Experienced in database management, APIs, and optimizing system performance</p>
+            PRATHAM PATADIYA
+            <p>Passionate backend developer skilled in building scalable, efficient, and secure server-side solutions. Experienced in database management, APIs, and optimizing system performance.</p>
         </div>
-        
+
         <div id="drisha" class="main">
             DRISHA CHAUHAN
-            <p>Creative frontend developer focused on building responsive, user-friendly, and visually appealing web applications. Skilled in modern frameworks, UI/UX, and performance optimization</p>
+            <p>Creative frontend developer focused on building responsive, user-friendly, and visually appealing web applications. Skilled in modern frameworks, UI/UX, and performance optimization.</p>
         </div>
-        
+
         <div id="ojas" class="main">
-           OJAS SRIVASTAVA
-           <p>Backend developer specializing in building robust, scalable, and secure server-side applications. Experienced in databases, APIs, and performance optimization</p>
+            OJAS SRIVASTAVA
+            <p>Backend developer specializing in building robust, scalable, and secure server-side applications. Experienced in databases, APIs, and performance optimization.</p>
         </div>
-        
-        
+
         <div id="param" class="main">
-           PARAM KANADA
-           <p>Frontend developer passionate about crafting seamless and interactive user experiences. Proficient in HTML, CSS, JavaScript, and modern frontend frameworks</p>
+            PARAM KANADA
+            <p>Frontend developer passionate about crafting seamless and interactive user experiences. Proficient in HTML, CSS, JavaScript, and modern frontend frameworks.</p>
         </div>
-            
-        
-        
-           </div>
-           <div class="Entry">
 
-            <div class="Name">Clubify</div>
-            <div class="Punchline">Your clubs, your rules, we just simplify!</div>
-    
-        </div>
-        <div class="counter-container">
-            <p class="neon-text">Total Visitors</p>
-            <div class="counter" id="visitor-counter"></div>
-        </div>
-    
-        
+    </div>
 
-        <!-- Link the JS file -->
-        <script src="{% static 'js/script.js' %}"></script>
-        <div class="stars-container"></div>
-        <div>
-            <a href="{% url 'second_page' %}">
-        <button id="expbtn">Explore More</button>
+    <div class="Entry">
+        <div class="Name">Clubify</div>
+        <div class="Punchline">Your clubs, your rules, we just simplify!</div>
+    </div>
+
+    <div class="counter-container">
+        <p class="neon-text">Total Visitors</p>
+        <div class="counter" id="visitor-counter"></div>
+    </div>
+
+    <!-- Link the JS file -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <div class="stars-container"></div>
+
+    <div>
+        <a href="{% url 'second_page' %}">
+            <button id="expbtn">Explore More</button>
         </a>
-        </div>
-        </body>
-        </html>
-        
-        
+    </div>
+
+    <!-- Audio player (autoplay and loop) -->
+    <audio id="bg-audio" loop>
+        <source src="{% static 'audio/stranger_things.mp3' %}" type="audio/mpeg">
+    </audio>
+
+    <script>
+      window.addEventListener('load', function () {
+          const audio = document.getElementById('bg-audio');
+  
+          // Resume from saved time if available
+          const savedTime = localStorage.getItem('audioTime');
+          if (savedTime) {
+              audio.currentTime = parseFloat(savedTime);
+          }
+  
+          // Start audio on first click
+          window.addEventListener('click', function () {
+              if (audio.paused) {
+                  audio.play();
+              }
+          });
+      });
+  
+      // Save playback time before leaving the page
+      window.addEventListener('beforeunload', function () {
+          const audio = document.getElementById('bg-audio');
+          localStorage.setItem('audioTime', audio.currentTime);
+      });
+  </script>
+
+</body>
 </html>

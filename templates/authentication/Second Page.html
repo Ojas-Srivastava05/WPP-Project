@@ -357,5 +357,32 @@
     const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime();
     startCountdown(eventDate);
   </script>
+  <audio id="bg-audio" loop>
+    <source src="{% static 'audio/stranger_things.mp3' %}" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    window.addEventListener('load', function () {
+      const audio = document.getElementById('bg-audio');
+      const savedTime = localStorage.getItem('audioTime');
+  
+      if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+  
+      // Autoplay on first click
+      window.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play();
+        }
+      });
+    });
+  
+    // Save current time when leaving the page
+    window.addEventListener('beforeunload', function () {
+      const audio = document.getElementById('bg-audio');
+      localStorage.setItem('audioTime', audio.currentTime);
+    });
+  </script>
 </body>
 </html>
