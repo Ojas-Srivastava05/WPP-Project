@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    
+    <!-- Link to Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #111111;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #f800f1;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #f800f1, 0 0 30px #f800f1;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #222222;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 0 10px #f800f1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #f800f1, 0 0 30px #f800f1;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #02f8fc;
+            text-shadow: 0 0 5px #02f8fc;
+        }
+
+        small {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+            color: #aaa;
+        }
+
+        .no-notifications {
+            color: #f800f1;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #f800f1, 0 0 30px #f800f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Notifications</h1>
+
+    {% if notifications %}
+        <ul>
+            {% for notification in notifications %}
+                <li>
+                    <p>{{ notification.message }}</p>
+                    <small>Received at: {{ notification.timestamp }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-notifications">No new notifications.</p>
+    {% endif %}
+
+</body>
+</html>

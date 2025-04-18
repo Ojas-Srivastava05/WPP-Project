@@ -1,19 +1,34 @@
+# dashboard/models.py
 from django.db import models
 from django.contrib.auth.models import User
 
-class Club(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    logo = models.ImageField(upload_to='club_logos/', blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
+# dashboard/models.py
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    clubs = models.ManyToManyField(Club, blank=True)
+    bio = models.TextField(default='No bio provided')  # Provide a default value
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
 
     def __str__(self):
         return self.user.username
 
-# Create your models here.
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+
+class Club(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Notification(models.Model):
+    club = models.ForeignKey(Club, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    is_read = models.BooleanField(default=False)  # For unread or read notifications
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Notification for {self.user} in {self.club}"

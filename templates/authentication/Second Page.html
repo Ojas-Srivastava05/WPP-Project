@@ -236,10 +236,13 @@
         <span class="icon">🏠</span>
         <span class="label">Home</span>
       </a>
-      <a href="#" class="button">
+      <a href="{% url 'notifications' %}" class="button">
         <span class="icon">👥</span>
-        <span class="label">My Clubs</span>
-      </a>
+        <span class="label">Notifications</span>
+        {% if notifications|length > 0 %}
+            <span class="badge">{{ notifications|length }}</span>
+        {% endif %}
+    </a>
       <!-- Dropdown Button -->
       <div class="dropdown">
         <button class="btn button dropdown-toggle" type="button" id="clubsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

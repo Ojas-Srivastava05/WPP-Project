@@ -1,0 +1,27 @@
+<!-- dashboard/templates/dashboard/notifications.html -->
+<div class="notifications">
+    <button onclick="toggleNotifications()">🔔</button>
+    <div class="dropdown">
+        {% for notification in notifications %}
+            <div class="notification">
+                <p>{{ notification.message }}</p>
+                <span>{{ notification.timestamp }}</span>
+                <button onclick="markAsRead({{ notification.id }})">Mark as Read</button>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    function markAsRead(notificationId) {
+        fetch(`/mark_as_read/${notificationId}/`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Notification marked as read');
+            }
+        });
+    }
+</script>
