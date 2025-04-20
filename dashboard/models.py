@@ -7,14 +7,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(default='No bio provided')  # Provide a default value
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    clubs = models.ManyToManyField('Club', related_name='members', blank=True)
 
     def __str__(self):
         return self.user.username
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField()
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
 
 class Club(models.Model):
     name = models.CharField(max_length=100)
