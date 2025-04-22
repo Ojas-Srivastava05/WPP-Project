@@ -21,7 +21,7 @@ def dashboard_view(request):
         'all_clubs': Club.objects.all(),
         'user_clubs': profile.clubs.all()
     }
-    
+    return render(request, 'dashboard/dashboard.html', context)
     
 def send_notification(request, club_id, message):
     club = Club.objects.get(id=club_id)
@@ -45,5 +45,4 @@ def mark_as_read(request, notification_id):
     notification.is_read = True
     notification.save()
     return JsonResponse({"status": "success"})
-
     return render(request, 'dashboard/dashboard.html', context)
