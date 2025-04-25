@@ -23,8 +23,8 @@ class Notification(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    is_read = models.BooleanField(default=False)  # For unread or read notifications
+    is_read = models.BooleanField(default=False)  # To track whether the notification has been read
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Notification for {self.user} in {self.club}"
+        return f"Notification for {self.user} in {self.club} - {self.message}"
