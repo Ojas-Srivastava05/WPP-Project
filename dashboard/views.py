@@ -60,17 +60,6 @@ def notifications_view(request):
 
 
 @login_required
-def mark_as_read(request, notification_id):
-    # Mark a specific notification as read
-    notification = Notification.objects.get(id=notification_id, user=request.user)
-    notification.is_read = True
-    notification.save()
-
-    # Return a success response as JSON
-    return JsonResponse({"status": "success"})
-
-
-@login_required
 def send_notification_view(request, club_id):
     # Handle sending notifications via a POST request
     if request.method == 'POST':

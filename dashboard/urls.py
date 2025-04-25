@@ -5,7 +5,5 @@ urlpatterns = [
     path('', views.dashboard_view, name='dashboard'),
     path('send-notification/<int:club_id>/', views.send_notification_view, name='send_notification'),
     path('send-notification/', views.send_notifications_view, name='send_notifications'),
-    path('mark_as_read/<int:notification_id>/', views.mark_as_read, name='mark_as_read'),
     path('notifications/', views.notifications_view, name='notifications'),
-    path('mark_as_read/<int:notification_id>/', views.mark_as_read, name='mark_as_read'),
 ]
