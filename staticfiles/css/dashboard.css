@@ -1,0 +1,119 @@
+/* Base setup */
+body {
+    background: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #0c0c0c);
+    background-size: 500% 500%;
+    animation: subtleShift 20s ease infinite;
+    color: #f800f1;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+@keyframes subtleShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    font-weight: 900;
+    color: #f800f1;
+    text-shadow: 0 0 10px rgba(248, 0, 241, 0.4);
+    margin-top: 20px;
+}
+
+/* Form and section container */
+form, section {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: rgba(20, 20, 20, 0.85);
+    border: 1px solid #f800f1;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 10px #f800f1;
+    animation: fadeIn 1.5s ease-out;
+}
+
+form:hover, section:hover {
+    box-shadow: 0 0 20px #f800f1;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Club list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 15px 0;
+    color: #f2f2f2;
+    font-weight: 600;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #111;
+    border: 2px solid #f800f1;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #f800f1;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #f800f1;
+    box-shadow: 0 0 6px #f800f1;
+}
+
+label {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fafafa;
+}
+
+/* Button */
+button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 24px;
+    font-size: 18px;
+    background: #000;
+    color: #f800f1;
+    border: 2px solid #f800f1;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 6px #f800f1;
+}
+
+button:hover {
+    background-color: #f800f1;
+    color: #000;
+    box-shadow: 0 0 12px #f800f1, 0 0 24px #f800f1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #f800f1;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #f800f1;
+}

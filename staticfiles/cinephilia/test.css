@@ -1,0 +1,443 @@
+/* General Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+  --bgc: #111542;
+  --neon-blue: #02f8fc;
+  --neon-pink: #f800f1;
+  --base-font: #d1d8e0;
+  --padding: 1.5rem;
+  --radius: 1.25rem;
+}
+
+body {
+    margin: 0;
+    font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url("background5.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #fff;
+    backdrop-filter: blur(4px);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: black; */
+    color: white;
+    /* padding: 10px 20px; */
+    width: 100%;
+    height: 170px;
+}
+
+header div {
+    width: 45%;
+    text-align: center;
+}
+
+.clubify-logo{
+    transform: translateX(-150px);
+    padding: 0px;
+}
+.club-logo{
+    padding: 0px;
+    transform: scale(90%);
+}
+/* HEADER ENDS */
+
+
+
+/* Event Counter Section */
+.event-counter {
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+
+
+/*UPCOMING EVENTS*/
+.event-showcase {
+    background: #040700c9;
+    margin: 2rem auto;
+    max-width: 1152px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 768px) {
+    .event-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* Media Showcase */
+  .media-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .slideshow {
+    position: relative;
+    height: 100%;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .nav-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background: white;
+  }
+  
+
+
+  /* Event Details */
+  .event-details {
+    padding: 2rem;
+  }
+  
+  .event-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    /* background: #dbeafe; */
+    color: white;
+    text-shadow: 0 0 1rem var(--neon-pink), 0 0 2rem var(--neon-pink), 0 0 3rem var(--neon-pink);
+    border-radius: 9999px;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+  
+  .event-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--neon-blue);
+    text-shadow: 0 0 1rem #02f8fc, 0 0 2rem #02f8fc;
+    margin-bottom: 1rem;
+    padding: 5px;
+
+    
+  }
+  
+  .event-description {
+    color: var(--neon-pink);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 1rem #f800f1, 0 0 2rem #f800f1;
+    font-weight: 400;
+  }
+  
+  .event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    color: white;
+
+  }
+  
+  .info-item svg {
+    margin-right: 0.75rem;
+  }
+  
+  .register-btn {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: #02f8fc;
+    color: black;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .register-btn:hover {
+    color: white;
+    background: #f800f1;
+  }
+/*UPCOMING EVENTS PART ENDS */
+
+
+  /*REVIOUS EVENTS/HIGHLIGHTS*/
+  .previous-events {
+    padding: 3rem 0;
+    /* background: #f9fafb; */
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #02f8fc;
+    text-shadow: 0 0 1rem #02f8fc, 0 0 2rem #02f8fc;
+    margin-bottom: 2rem;
+  }
+  
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .event-item {
+    background: black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: start;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    animation: appeare 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+  }
+  
+  .event-item:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes appeare{
+    from{
+      opacity: 0;
+      scale: 0.4;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+  .event-item img {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .event-content {
+    padding: 1.5rem;
+    flex: 1;
+  }
+  
+  .event-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f800f1;
+    text-shadow: 0 0 1rem #f800f1, 0 0 2rem #f800f1;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-date {
+    font-size: 0.875rem;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+  
+  .event-desc {
+    color: white;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .event-item {
+      flex-direction: column;
+    }
+  
+    .event-item img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+  /* Previous events part ends */
+
+
+
+/* CLUB DESCRIPTION */
+  .description-area{
+    color: white;
+    background: #040700c9;
+    width: 90%;
+    max-width: 800px;
+    margin: 10px 0;
+    padding: 20px;
+    text-align: center;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 5px; */
+}
+
+
+.feedback-button {
+    background-color: #f4f4f433;
+    /* width: 15%; */
+    /* max-width: 800px; */
+    margin: 10px 0;
+    padding: 0px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    transform: translateX(600px);
+}
+
+
+.feedback-button button {
+    background-color: black;
+    color: #d1d8e0;
+    /* border: none; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback-button button:hover {
+    box-shadow: 0 0 1rem #02f8fc, 0 0 1rem #02f8fc;
+}
+
+
+
+/* Footer */
+.footer {
+    background-color: black;
+    padding: 20px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #02f8fc;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}

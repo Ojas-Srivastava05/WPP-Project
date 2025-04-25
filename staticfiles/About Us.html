@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=VT323&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <style>
+    body {
+      background-image: url('./aboutusbg.jpg');
+      background-color: #000000;
+      color: #ff007f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+
+    h1 {
+      font-family: "Orbitron", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: bolder;
+      font-style: normal;
+      color: #ff007f;
+      margin-bottom: 40px;
+      font-size: 3em;
+      text-shadow: 0 0 20px #000000;
+    }
+
+    .dropdown {
+  width: 300px;
+  background-color: #1a1a1a;
+  color: #ff007f;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 12px;
+  max-height: 500px;
+  box-shadow: 0 0 10px #ff007f44;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hover-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  position: relative;
+}
+
+.hover-box img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff007f;
+  transition: transform 0.3s ease;
+}
+
+.hover-box img:hover {
+  transform: scale(1.05);
+}
+
+.member-name {
+  margin: 10px 20px 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff007f;
+  animation: neon-fade 2s infinite alternate;
+  text-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 20px #ff007f;
+}
+
+.typewriter-text {
+  margin: 10px 20px;
+  font-size: 18px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.social-buttons a {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: transparent;
+  color: #ff007f;
+  border: 2px solid #ff007f;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+}
+
+.social-buttons a:hover {
+  background-color: #ff007f;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+  </style>
+</head>
+<body>
+
+  <h1>Meet The Crew</h1>
+
+  <div class="container">
+
+    <!-- Member 1 -->
+    <div class="hover-box">
+      <div style="width: 200px; margin: auto;">
+        <img src="./b730bbbe-f3b3-4e92-9203-21c4b9f52dee.JPG" alt="Crew Member 1">
+      </div>
+      <div class="dropdown">
+        <p class="member-name">Pratham Patadiya</p>
+        <p class="typewriter-text"></p>
+        <div class="social-buttons" style="margin-bottom: 15px;">
+          <a href="https://www.instagram.com/pratham07_p/?hl=en" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/pratham-patadiya-4b1344300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="hover-box">
+      <div style="width: 200px; margin: auto;">
+        <img src="Drisha.jpeg" alt="Crew Member 2">
+      </div>
+      <div class="dropdown">
+        <p class="member-name">Drisha Chauhan</p>
+        <p class="typewriter-text"></p>
+        <div class="social-buttons" style="margin-bottom: 15px;">
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/drisha-chauhan-3589a2332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 3 -->
+    <div class="hover-box">
+      <div style="width: 200px; margin: auto;">
+        <img src="./1000015379.JPG" alt="Crew Member 3">
+      </div>
+      <div class="dropdown">
+        <p class="member-name">Ojas Srivastava</p>
+        <p class="typewriter-text"></p>
+        <div class="social-buttons" style="margin-bottom: 15px;">
+          <a href="https://www.instagram.com/_.ojas_srivastava._?igsh=bGVhZ2Vpem90a3Br&utm_source=qr" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/ojas-srivastava05?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 4 -->
+    <div class="hover-box">
+      <div style="width: 200px; margin: auto;">
+        <img src="./PROMBachpan.jpeg" alt="Crew Member 4">
+      </div>
+      <div class="dropdown">
+        <p class="member-name">Param Kanada</p>
+        <p class="typewriter-text"></p>
+        <div class="social-buttons" style="margin-bottom: 15px;">
+          <a href="https://www.instagram.com/param__kanada?igsh=eDl2dzFwdmhyY3Nv target="_blank">Instagram</a>
+          <a href="https://in.linkedin.com/in/param-kanada-70a855312" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const hoverBoxes = document.querySelectorAll('.hover-box');
+const messages = [
+  "I’m Pratham, a 1st year AI student at SVNIT with a passion for backend development. I worked on the backend for this project, handling everything from databases to server-side logic. I enjoy solving problems, optimizing performance, and making sure everything runs smoothly behind the scenes. With experience in Python, Django, C, C++, and JavaScript, I’m always looking to learn and build better systems.",
+  "I'm Drisha, a first-year B.Tech student at SVNIT with a solid foundation in programming and web development. I have experience in Python, C, and C++, and specialize in frontend development. Currently, I’m expanding my skill set to include backend technologies, aiming to become a well-rounded full-stack developer with a focus on building efficient, user-centric applications.",
+  "I’m Ojas , and the child in the photograph never thought he would one day build a website like this. As the team leader and backend ninja, I have taken responsibility for the backend development, ensuring smooth functionality and user experience. With strong leadership skills, I guided the team through the project’s journey, while focusing on making sure the technical side ran seamlessly.",
+  "I’m Param, a frontend developer currently in my second semester of the Artificial Intelligence branch at SVNIT. I contribute to the development of a College Club Management website, focusing on building clean, responsive, and user-centric interfaces. With a solid foundation in C, C++, and Python, I’m continuously expanding my expertise in web development to create efficient and engaging digital solutions."
+];
+
+hoverBoxes.forEach((box, index) => {
+  const dropdown = box.querySelector('.dropdown');
+  const textEl = box.querySelector('.typewriter-text');
+  const message = messages[index];
+
+  box.addEventListener('mouseover', () => {
+    dropdown.style.opacity = '1'; // Show the dropdown with smooth opacity transition
+    dropdown.style.pointerEvents = 'auto'; // Enable interaction with the buttons
+    textEl.textContent = message; // Update the text
+  });
+
+  box.addEventListener('mouseout', () => {
+    // Prevent hiding when hovering over the dropdown itself
+    const isHoveredOnDropdown = dropdown.matches(':hover');
+    if (!isHoveredOnDropdown) {
+      dropdown.style.opacity = '0'; // Hide the dropdown
+      dropdown.style.pointerEvents = 'none'; // Disable interaction with the buttons
+      textEl.textContent = ''; // Clear the text
+    }
+  });
+
+  // Ensure the dropdown stays visible when hovering over it
+  dropdown.addEventListener('mouseover', () => {
+    dropdown.style.opacity = '1';
+    dropdown.style.pointerEvents = 'auto';
+  });
+
+  dropdown.addEventListener('mouseout', () => {
+    dropdown.style.opacity = '0';
+    dropdown.style.pointerEvents = 'none';
+  });
+});
+  </script>
+
+</body>
+</html>
