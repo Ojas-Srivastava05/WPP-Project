@@ -169,7 +169,7 @@
     .image-carousel .carousel-item img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: fit;
       border-radius: var(--border-radius);
     }
 
@@ -285,6 +285,8 @@
       </a>
     </div>
 
+    
+
     <!-- Main Content -->
     <div class="main-content">
       <div class="carousel-container">
@@ -292,36 +294,37 @@
         <div id="carouselExampleSlidesOnly" class="carousel slide image-carousel" data-ride="carousel" data-interval="4000">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="{% static 'images/RImage 1.jpg' %}" alt="First slide">
+              <img class="d-block w-100" src="{% static 'images/SVNIT.png' %}" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="{% static 'images/RImage 2.jpg' %}" alt="Second slide">
+              <img class="d-block w-100" src="{% static 'images/SVNIT2.jpeg' %}" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="{% static 'images/RImage 3.jpg' %}" alt="Third slide">
+              <img class="d-block w-100" src="{% static 'images/DoAI.png' %}" alt="Third slide">
             </div>
           </div>
         </div>
 
         <!-- Text Carousel -->
-        <div id="textCarousel" class="carousel slide text-carousel" data-ride="false">
+        <div id="textCarousel" class="carousel slide text-carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div>
-                <h2>"The best way to predict the future is to invent it."</h2>
-                <p>– Alan Kay</p>
+                <h2>विज्ञानं यज्ञं तनुते |</h2>
+                <br>
+                <h2>Science promotes the performance of the sacrifice.</h2>
+                <p>– SVNIT Motto </p>
               </div>
             </div>
             <div class="carousel-item">
               <div>
-                <h2>"Life is 10% what happens to us and 90% how we react to it."</h2>
-                <p>– Charles R. Swindoll</p>
+                <h2>SVNIT Surat is a top-tier Institute of National Importance known for academic excellence, strong placements, and a vibrant, globally connected campus.</h2>
+               
               </div>
             </div>
             <div class="carousel-item">
               <div>
-                <h2>"Simplicity is the ultimate sophistication."</h2>
-                <p>– Leonardo da Vinci</p>
+                <h2>The AI department at SVNIT Surat offers cutting-edge research and academic programs focused on artificial intelligence, machine learning, and data science, fostering innovation and industry collaborations.</h2>
               </div>
             </div>
           </div>
@@ -330,63 +333,73 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function startCountdown(targetDate) {
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+ <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+<script>
+  const imageCarousel = $('#carouselExampleSlidesOnly');
+  const textCarousel = $('#textCarousel');
 
-        if (distance < 0) {
-          document.getElementById("countdown").innerHTML = "Event Started!";
-          return;
-        }
+  imageCarousel.on('slide.bs.carousel', function (e) {
+    textCarousel.carousel(e.to);
+  });
+</script>
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<script>
+  function startCountdown(targetDate) {
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
 
-        document.getElementById("countdown").innerHTML =
-          `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Event Started!";
+        return;
       }
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     }
 
-    const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime();
-    startCountdown(eventDate);
-  </script>
-  <audio id="bg-audio" loop>
-    <source src="{% static 'audio/stranger_things.mp3' %}" type="audio/mpeg">
-  </audio>
-  
-  <script>
-    window.addEventListener('load', function () {
-      const audio = document.getElementById('bg-audio');
-      const savedTime = localStorage.getItem('audioTime');
-  
-      if (savedTime) {
-        audio.currentTime = parseFloat(savedTime);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  const eventDate = new Date("2025-04-20T00:00:00+05:30").getTime();
+  startCountdown(eventDate);
+</script>
+
+<audio id="bg-audio" loop>
+  <source src="{% static 'audio/stranger_things.mp3' %}" type="audio/mpeg">
+</audio>
+
+<script>
+  window.addEventListener('load', function () {
+    const audio = document.getElementById('bg-audio');
+    const savedTime = localStorage.getItem('audioTime');
+
+    if (savedTime) {
+      audio.currentTime = parseFloat(savedTime);
+    }
+
+    // Autoplay on first click
+    window.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play();
       }
-  
-      // Autoplay on first click
-      window.addEventListener('click', function () {
-        if (audio.paused) {
-          audio.play();
-        }
-      });
     });
-  
-    // Save current time when leaving the page
-    window.addEventListener('beforeunload', function () {
-      const audio = document.getElementById('bg-audio');
-      localStorage.setItem('audioTime', audio.currentTime);
-    });
-  </script>
-  
+  });
+
+  // Save current time when leaving the page
+  window.addEventListener('beforeunload', function () {
+    const audio = document.getElementById('bg-audio');
+    localStorage.setItem('audioTime', audio.currentTime);
+  });
+</script>
+
 </body>
 </html>
