@@ -1,0 +1,7 @@
+<!-- send_notifications.html -->
+<h2>Send Notification to Club Members</h2>
+<form method="POST" action="{% url 'send_notification' club.id %}">
+    {% csrf_token %}
+    <textarea name="message" placeholder="Enter message to send to {{ club.name }} members"></textarea>
+    <button type="submit">Send Notification</button>
+</form>

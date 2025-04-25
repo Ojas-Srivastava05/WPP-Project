@@ -59,7 +59,10 @@ ROOT_URLCONF = 'clubify_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Correct way to join paths
+        'DIRS': [
+    os.path.join(BASE_DIR, 'templates'),  # For index.html and others
+    os.path.join(BASE_DIR, 'static', 'templates'),  # For dashboard/notifications.html
+],# Correct way to join paths
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
