@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let target = 10000;
+    let target = 4962;
     let visitorCounter = document.getElementById("visitor-counter");
     if (!visitorCounter) return;
     let digits = target.toString().length;
