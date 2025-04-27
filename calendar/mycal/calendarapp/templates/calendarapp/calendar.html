@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+    
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+    
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f2b, #1f1f3b);
+            color: #fff;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00f;
+            box-shadow: 0 0 10px #00f;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color:rgb(232, 224, 224); /* PINK heading */
+            text-shadow: 0 0 5pxrgb(15, 14, 14), 0 0 15pxrgb(6, 5, 5);
+        }
+
+        #calendar {
+            margin: 40px auto;
+            width: 85%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 255, 0.3);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Default calendar styles in BLUE */
+        .fc-button {
+            background-color:rgb(252, 252, 253) !important;
+            border: 1px solid black !important;
+            color: black !important;
+            {% comment %} text-shadow: 0 0 5px #00f;
+            box-shadow: 0 0 10px #00f; {% endcomment %}
+        }
+
+        .fc-button:hover {
+            background-color: #00f !important;
+            color: #fff !important;
+        }
+
+        .fc-daygrid-event {
+            background-color: #00f !important;
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 5px;
+            box-shadow: 0 0 8px #00f;
+        }
+
+        .fc-daygrid-day-number {
+            color: #fff !important;
+        }
+
+        /* PINK style ONLY for the month/year label (e.g., April 2025) */
+        .fc-toolbar-title {
+            color:white;
+            text-shadow: 0 0 8pxrgb(207, 207, 207);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>My Events Calendar</h1>
+    </header>
+    
+    <!-- Calendar Container -->
+    <div id="calendar"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',  // Default view (Month view)
+                events: [
+                    {% for event in events %}
+                    {
+                        title: '{{ event.title }}',  // Event title
+                        start: '{{ event.start_time.isoformat }}',  // Event start time
+                        end: '{{ event.end_time.isoformat }}',  // Event end time
+                        allDay: {% if event.all_day %}true{% else %}false{% endif %},
+  // Full-day event (boolean)
+                    },
+                    {% endfor %}
+                ]
+            });
+            calendar.render();  // Render the calendar
+        });
+    </script>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',  // Default view (Month view)
+            events: [
+                {
+                    title: 'EVENT',
+                    start: '2025-05-05',
+                    end: '2025-05-05',
+                    allDay: true
+                },
+                {
+                    title: 'EVENT',
+                    start: '2025-04-05',
+                    end: '2025-04-05',
+                    allDay: true
+                },
+                {
+                    title: 'EVENT',
+                    start: '2025-05-15',
+                    end: '2025-05-17',
+                    allDay: true
+                },
+                {
+                    title: 'EVENT',
+                    start: '2025-05-21',
+                    allDay: true
+                }
+                
+            ]
+        });
+        calendar.render();  // Render the calendar
+    });
+</script>
+
