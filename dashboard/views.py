@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Club, UserProfile, Notification
 from django.http import JsonResponse
-
 from django.shortcuts import render
 
 def send_notifications_view(request):
@@ -29,7 +28,7 @@ def dashboard_view(request):
         'user_clubs': profile.clubs.all()  # Get the clubs the user is a part of
     }
     return render(request, 'dashboard/dashboard.html', context)
-
+ 
 
 def send_notification(request, club_id, message):
     # Get the club instance
