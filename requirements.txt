@@ -13,4 +13,4 @@ python-dotenv>=1.0.1
 whitenoise>=6.6.0
 psycopg2-binary>=2.9.9
 firebase-admin>=6.5.0
-fcm-django>=3.2.1
+fcm-django>=2.3.0
