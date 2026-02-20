@@ -82,7 +82,8 @@ from pathlib import Path
 import os
 
 # Initialize Firebase Admin once
-CRED_PATH = Path('/Users/ojas/Desktop/WPP-Project/clubify-9e6ed-firebase-adminsdk-fbsvc-1dee9e0c36.json')
+from django.conf import settings
+CRED_PATH = Path(os.environ.get('FIREBASE_CREDENTIALS_PATH', settings.BASE_DIR / 'clubify-9e6ed-firebase-adminsdk-fbsvc-1dee9e0c36.json'))
 if CRED_PATH.exists() and not firebase_admin._apps:
     cred = credentials.Certificate(str(CRED_PATH))
     firebase_admin.initialize_app(cred)
