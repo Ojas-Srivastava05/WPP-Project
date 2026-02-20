@@ -91,6 +91,19 @@ if CRED_PATH.exists() and not firebase_admin._apps:
 class RegisterSchema(Schema):
     username: str
     password: str
+    email: str = ''
+
+class UserProfileSchema(Schema):
+    id: int
+    username: str
+    email: str
+    is_superuser: bool = False
+
+class CreateAdminSchema(Schema):
+    username: str
+    password: str
+    email: str = ''
+    admin_secret: str
 
 auth_extensions_router = Router(tags=["Auth Extensions"])
 
@@ -102,13 +115,37 @@ def register_user(request, payload: RegisterSchema):
     
     user = User.objects.create_user(
         username=payload.username,
-        password=payload.password
+        password=payload.password,
+        email=payload.email
     )
     # Also create the UserProfile that is expected
     from dashboard.models import UserProfile
     UserProfile.objects.get_or_create(user=user)
     
     return 201, {"success": True, "message": "Account created successfully!"}
+
+@auth_extensions_router.get("/me", auth=JWTAuth(), response={200: UserProfileSchema})
+def get_me(request):
+    """Get the currently authenticated user's profile"""
+    u = request.user
+    return 200, {"id": u.id, "username": u.username, "email": u.email, "is_superuser": u.is_superuser}
+
+@auth_extensions_router.post("/create-admin", auth=None, response={201: dict, 400: ErrorSchema, 403: ErrorSchema})
+def create_admin(request, payload: CreateAdminSchema):
+    """Create a superuser account. Requires the ADMIN_SECRET env variable to match."""
+    expected_secret = os.environ.get('ADMIN_SECRET', 'clubify-admin-setup-2026')
+    if payload.admin_secret != expected_secret:
+        return 403, {"detail": "Invalid admin secret."}
+    if User.objects.filter(username=payload.username).exists():
+        return 400, {"detail": "Username already exists."}
+    user = User.objects.create_superuser(
+        username=payload.username,
+        password=payload.password,
+        email=payload.email
+    )
+    from dashboard.models import UserProfile
+    UserProfile.objects.get_or_create(user=user)
+    return 201, {"success": True, "message": f"Admin '{payload.username}' created successfully!"}
 
 
 # 6. Admin Panel Router

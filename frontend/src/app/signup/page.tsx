@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 export default function SignupPage() {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -23,7 +24,7 @@ export default function SignupPage() {
 
         try {
             // First register the user
-            await api.post('/auth/register', { username, password });
+            await api.post('/auth/register', { username, password, email });
             setSuccess('Account created! Logging you in...');
 
             // Then instantly log them in
@@ -88,6 +89,24 @@ export default function SignupPage() {
                                     required
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Email Field */}
+                        <div className="flex flex-col gap-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-primary ml-4">Campus Email</label>
+                            <div className="relative group">
+                                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                                    <span className="material-symbols-outlined text-primary text-xl">mail</span>
+                                </div>
+                                <input
+                                    className="w-full bg-black/40 border border-slate-700/50 rounded-full py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600 shadow-inner"
+                                    placeholder="you@campus.edu"
+                                    type="email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                         </div>

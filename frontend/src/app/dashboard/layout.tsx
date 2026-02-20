@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Calendar as CalendarIcon, Bell, LogOut, Loader2, Shield } from 'lucide-react';
+import { Compass, Calendar as CalendarIcon, Bell, LogOut, Loader2, Shield, Home } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -32,14 +32,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-8">
-                            <Link href="/dashboard" className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                            <Link href="/" className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                                 Clubify
                             </Link>
 
                             <div className="hidden md:flex items-center space-x-1">
+                                <NavLink href="/" icon={<Home className="w-4 h-4" />}>Home</NavLink>
                                 <NavLink href="/dashboard" icon={<Compass className="w-4 h-4" />}>Discover</NavLink>
                                 <NavLink href="/calendar" icon={<CalendarIcon className="w-4 h-4" />}>Calendar</NavLink>
-                                <NavLink href="/admin" icon={<Shield className="w-4 h-4" />}>Admin</NavLink>
+                                {user.is_superuser && (
+                                    <NavLink href="/admin" icon={<Shield className="w-4 h-4" />}>Admin</NavLink>
+                                )}
                             </div>
                         </div>
 
