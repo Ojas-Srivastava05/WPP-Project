@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clubify Neon Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #0dccf2;
+            --neon-purple: #bc13fe;
+            --neon-lime: #39ff14;
+            --bg-dark: #000000;
+        }
+        @theme {
+            extend: {
+                colors: {
+                    "primary": "var(--primary)",
+                    "neon-purple": "var(--neon-purple)",
+                    "neon-lime": "var(--neon-lime)",
+                    "background-dark": "var(--bg-dark)",
+                }
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0dccf2",
+                        "neon-purple": "#bc13fe",
+                        "neon-lime": "#39ff14",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .neon-glow-purple {
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.6), 0 0 30px rgba(188, 19, 254, 0.3);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(13, 204, 242, 0.6), 0 0 30px rgba(13, 204, 242, 0.3);
+        }
+        .neon-glow-lime {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.6), 0 0 30px rgba(57, 255, 20, 0.3);
+        }
+        .batman-text {
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            filter: drop-shadow(0 0 8px rgba(13, 204, 242, 0.3));
+        }
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(13, 204, 242, 0.3);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .neon-border-cyan {
+            border: 2px solid var(--primary);
+            box-shadow: inset 0 0 10px rgba(13, 204, 242, 0.2), 0 0 15px rgba(13, 204, 242, 0.3);
+        }
+        .neon-border-purple {
+            border: 2px solid var(--neon-purple);
+            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2), 0 0 15px rgba(188, 19, 254, 0.3);
+        }
+        .neon-border-lime {
+            border: 2px solid var(--neon-lime);
+            box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2), 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 5px var(--primary));
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-slate-100 selection:bg-primary/30">
+<header class="sticky top-0 z-50 glass-nav px-5 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="text-primary flex items-center justify-center logo-glow">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">bolt</span>
+</div>
+<span class="text-2xl font-black tracking-tighter text-white">CLUBIFY</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white text-xs font-bold uppercase tracking-widest">Sign In</button>
+<button class="bg-primary text-black px-4 py-2 rounded-lg text-xs font-black uppercase tracking-tighter hover:brightness-110 transition-all">
+            Sign Up
+        </button>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative px-6 pt-12 pb-20 flex flex-col items-center text-center overflow-hidden">
+<div class="absolute -top-24 -left-24 w-80 h-80 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="absolute top-1/2 -right-24 w-96 h-96 bg-neon-purple/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-neon-lime/5 rounded-full blur-[100px]"></div>
+<div class="relative z-10 space-y-8 w-full">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-primary/40 text-[10px] font-black tracking-[0.2em] text-primary uppercase mx-auto">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                The Campus Core
+            </div>
+<h1 class="batman-text text-[4.5rem] leading-[0.8] text-white">
+                IGNITE <br/> <span class="text-primary">THE</span> <br/> SQUAD
+            </h1>
+<div class="relative w-full max-w-[280px] aspect-square mx-auto my-8">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary via-neon-purple to-neon-lime opacity-20 blur-3xl animate-pulse"></div>
+<div class="relative w-full h-full rounded-3xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden flex items-center justify-center group">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+<span class="material-symbols-outlined text-7xl text-primary/50 logo-glow">rocket_launch</span>
+</div>
+</div>
+<p class="text-slate-400 text-lg font-medium leading-snug px-4">
+                Elevate your college life. Discover elite student organizations and claim your spot in the spotlight.
+            </p>
+<div class="pt-4 flex flex-col items-center gap-4">
+<button class="w-full max-w-[260px] bg-neon-purple text-white py-5 rounded-2xl font-black tracking-widest text-xl neon-glow-purple hover:scale-105 transition-transform active:scale-95 uppercase">
+                    Join a Club
+                </button>
+</div>
+</div>
+</section>
+<section class="py-12 bg-black/40 border-t border-white/5">
+<div class="px-6 mb-8 flex items-end justify-between">
+<div>
+<span class="text-neon-lime text-[10px] font-black uppercase tracking-[0.3em]">Trending Now</span>
+<h2 class="text-3xl font-black uppercase tracking-tighter text-white">Featured</h2>
+</div>
+<a class="text-primary text-xs font-bold flex items-center gap-1 uppercase tracking-widest pb-1" href="#">
+                Explore <span class="material-symbols-outlined text-sm">trending_flat</span>
+</a>
+</div>
+<div class="flex overflow-x-auto pb-10 px-6 gap-6 no-scrollbar snap-x snap-mandatory">
+<div class="min-w-[300px] snap-center bg-zinc-950 rounded-2xl overflow-hidden neon-border-cyan flex flex-col">
+<div class="h-44 relative">
+<img alt="Advanced robotics and circuitry" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmtn-HU8w6hRYAoWkX2I9b1cepEeF6YcXxjcCqo8dB8P0Ca8g3nPG-Ypoc05Uneu1eg_g4WGQ6fpaxLd4VjLohY5eS9OEKrdDjP3gVJN5ElgNnkjsJAcKqOCbvyxeWdtPZ4K3DrL6sHABSIoV2RNmtkWO99CjrC77DrCaDJTW8q2yRDaV24gEmjqqIpn_zL5dO6baZvq5bNot7EyLMHnmq1BxdAhQWbTXtu-tfD2Csg1BnAUYdbTI5GJStzaIHizfD6A5ufekWTr1t"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary text-black text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-tighter">Engineering</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="text-2xl font-bold text-white tracking-tight">Robotics Club</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Building autonomous systems and competing in national championships.</p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-primary text-lg font-black">150+</span>
+<span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Active Members</span>
+</div>
+<button class="bg-primary/10 text-primary border border-primary/40 px-5 py-2 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-primary hover:text-black transition-colors">Join</button>
+</div>
+</div>
+</div>
+<div class="min-w-[300px] snap-center bg-zinc-950 rounded-2xl overflow-hidden neon-border-purple flex flex-col">
+<div class="h-44 relative">
+<img alt="Cinematic lighting and cameras" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWTdYwevU_jVAI1wxQdWgzAeVJCAs7GdvfSIziX7auWCgj3eGCUOrkMN7WgGdoCCN3bWARiMQOJO2wjzvswlR67753rT5L8XILJ85uyXUzoacy3mHUjnZbQYQjmccaacLdtZJV1_3Qoq96B7hd0N4VCnE-i9IdBhD2qylIR0qvPgyEyZPKhtpnV7MiM1NCOu7p6ITYJ98b8AZgsJJ_u3SlRievoTj9sj4QY8Ntwh4oW0-bBSZSq5uiUm_l3VXACDR99E0k3kjdMjs8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-neon-purple text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-tighter">Cinema</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="text-2xl font-bold text-white tracking-tight">Film Society</h3>
+<p class="text-slate-400 text-sm leading-relaxed">The hub for directors, actors, and visionary storytellers.</p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-neon-purple text-lg font-black">88+</span>
+<span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Creators</span>
+</div>
+<button class="bg-neon-purple/10 text-neon-purple border border-neon-purple/40 px-5 py-2 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-neon-purple hover:text-white transition-colors">Join</button>
+</div>
+</div>
+</div>
+<div class="min-w-[300px] snap-center bg-zinc-950 rounded-2xl overflow-hidden neon-border-lime flex flex-col">
+<div class="h-44 relative">
+<img alt="Strategic chess board with neon accents" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvxFlVFwcqS_9G6ySeFHv723-HCBgkGRW0pyWl3DU9b-w_qc5RrPogpPGoV45tBN1ZB9gICtcom4pKZxEQV1NVA_oExzN6EmrmQ4CmGhoOLrUy3VbBrb8bN32SFmFebDMOv0TAL_yUEfSIYmrTgXZgDOEEWDCsEqB93pEzmGQVpuwTA3xErsgn67ZNy_19wR2sYDRi2c1VkbWg_0jazwZjRhPQjX9sy7nJo3ydFkoO1UK4d9_s2Sof_mB8Ja8Jy7Tid4vAGvgMW2Yq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-neon-lime text-black text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-tighter">Strategy</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="text-2xl font-bold text-white tracking-tight">Chess Masters</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Sharpen your mind with high-stakes blitz tournaments and tactics.</p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-neon-lime text-lg font-black">120+</span>
+<span class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">Tacticians</span>
+</div>
+<button class="bg-neon-lime/10 text-neon-lime border border-neon-lime/40 px-5 py-2 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-neon-lime hover:text-black transition-colors">Join</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-16 text-center border-t border-white/5">
+<div class="grid grid-cols-2 gap-8 mb-12">
+<div class="space-y-1">
+<div class="text-4xl font-black text-primary">50+</div>
+<div class="text-[10px] text-slate-500 uppercase font-black tracking-[0.2em]">Campuses</div>
+</div>
+<div class="space-y-1">
+<div class="text-4xl font-black text-neon-purple">12K+</div>
+<div class="text-[10px] text-slate-500 uppercase font-black tracking-[0.2em]">Active Students</div>
+</div>
+</div>
+<div class="p-8 rounded-3xl border border-white/10 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+<h3 class="text-2xl font-black text-white mb-4">STAY IN THE LOOP</h3>
+<div class="space-y-4">
+<input class="w-full bg-black border border-white/10 rounded-xl px-6 py-4 text-white text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="Enter campus email" type="email"/>
+<button class="w-full bg-primary text-black font-black uppercase py-4 rounded-xl tracking-widest text-sm shadow-[0_0_20px_rgba(13,204,242,0.3)]">
+                    Subscribe
+                </button>
+</div>
+</div>
+<div class="mt-12 flex justify-center gap-8 text-slate-600">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-3xl">language</span></a>
+<a class="hover:text-neon-purple transition-colors" href="#"><span class="material-symbols-outlined text-3xl">podcasts</span></a>
+<a class="hover:text-neon-lime transition-colors" href="#"><span class="material-symbols-outlined text-3xl">alternate_email</span></a>
+</div>
+<p class="mt-8 text-[9px] text-slate-700 uppercase tracking-[0.4em] font-bold">© 2024 Clubify • Premium Campus Network</p>
+</section>
+<div class="h-28"></div>
+</main>
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-50">
+<div class="glass-nav border border-white/20 rounded-2xl px-6 py-4 flex items-center justify-between shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">grid_view</span>
+<span class="text-[9px] font-black text-primary uppercase tracking-tighter">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[9px] font-black uppercase tracking-tighter">Browse</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[9px] font-black uppercase tracking-tighter">Saved</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[9px] font-black uppercase tracking-tighter">Profile</span>
+</a>
+</div>
+</div>
+
+</body></html>

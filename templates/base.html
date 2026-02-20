@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Clubify{% endblock %}</title>
+    <!-- Tailwind CSS (CDN for rapid prototyping as agreed) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 border-b border-gray-700 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo brand -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="{% url 'home' %}" class="flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-bold text-white text-xl">
+                            C</div>
+                        <span
+                            class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 tracking-tight">
+                            Clubify
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Dashboard</a>
+                        <a href="{% url 'calendar' %}"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Calendar</a>
+                        <div class="relative ml-4 group">
+                            <button
+                                class="flex items-center gap-2 text-gray-200 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200">
+                                {{ user.username }}
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown -->
+                            <div
+                                class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right">
+                                <a class="block px-4 py-3 text-sm text-red-400 hover:bg-gray-700 hover:text-red-300 rounded-lg"
+                                    href="{% url 'logout' %}">Sign out</a>
+                            </div>
+                        </div>
+                        {% else %}
+                        <a href="{% url 'login' %}"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Log
+                            In</a>
+                        <a href="{% url 'signup' %}"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-md">Sign
+                            Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Messages / Alerts -->
+    {% if messages %}
+    <div class="max-w-3xl mx-auto mt-6 w-full px-4 fixed top-16 left-0 right-0 z-40">
+        {% for message in messages %}
+        <div class="p-4 mb-4 text-sm rounded-xl shadow-lg border {% if message.tags == 'success' %}text-green-200 bg-green-900/50 border-green-800/50{% elif message.tags == 'error' %}text-red-200 bg-red-900/50 border-red-800/50{% else %}text-blue-200 bg-blue-900/50 border-blue-800/50{% endif %} backdrop-blur-sm transform translate-y-0 opacity-100 transition-all duration-300 animate-slide-down flex justify-between items-center"
+            role="alert">
+            <span class="font-medium">{{ message }}</span>
+            <button onclick="this.parentElement.remove()"
+                class="text-gray-400 hover:text-white ml-auto focus:outline-none">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full pt-10 pb-16">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 text-center text-sm text-gray-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Clubify Web Programming Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes slide-down {
+            0% {
+                transform: translateY(-1rem);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-down {
+            animation: slide-down 0.4s ease-out forwards;
+        }
+    </style>
+</body>
+
+</html>

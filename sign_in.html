@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clubify Neon Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80f20d",
+                        "neon-purple": "#bc13fe",
+                        "neon-cyan": "#00f3ff",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#050704",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'neon-lime': '0 0 15px rgba(128, 242, 13, 0.4), 0 0 30px rgba(128, 242, 13, 0.2)',
+                        'neon-purple-soft': '0 0 20px rgba(188, 19, 254, 0.15)',
+                        'neon-cyan-glow': '0 0 10px rgba(0, 243, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .neon-text-lime {
+            text-shadow: 0 0 10px rgba(128, 242, 13, 0.5);
+        }
+        .neon-text-purple {
+            text-shadow: 0 0 8px rgba(188, 19, 254, 0.6);
+        }
+        .neon-border-purple {
+            border: 1px solid rgba(188, 19, 254, 0.3);
+        }
+        .glass-panel {
+            background: rgba(25, 34, 16, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .batman-text {
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-style: italic;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4 overflow-x-hidden">
+<!-- Decorative Glow Background Elements -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-neon-purple/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed top-[20%] right-[-5%] w-[30%] h-[30%] bg-neon-cyan/5 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="relative w-full max-w-md flex flex-col gap-8 z-10">
+<!-- Logo Header -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center border border-primary/40 shadow-neon-lime">
+<span class="material-symbols-outlined text-primary text-4xl leading-none">electric_bolt</span>
+</div>
+<h2 class="text-3xl font-bold tracking-tighter text-slate-100 italic">
+                CLUB<span class="text-primary neon-text-lime">IFY</span>
+</h2>
+</div>
+<!-- Main Card -->
+<div class="glass-panel neon-border-purple rounded-xl p-8 shadow-neon-purple-soft flex flex-col gap-8">
+<div class="space-y-1">
+<h1 class="text-4xl batman-text text-white leading-none">Sign In</h1>
+<p class="text-slate-400 text-sm font-medium">Welcome back to the underground.</p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-5">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest text-neon-cyan/80 ml-4">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-neon-cyan text-xl">alternate_email</span>
+</div>
+<input class="w-full bg-black/40 border border-slate-700/50 rounded-full py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:border-neon-cyan transition-all placeholder:text-slate-600 shadow-inner" placeholder="dj.neon@clubify.io" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center ml-4">
+<label class="text-xs font-bold uppercase tracking-widest text-neon-cyan/80">Password</label>
+<a class="text-[10px] font-bold uppercase tracking-wider text-neon-purple hover:text-white transition-colors neon-text-purple" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-neon-cyan text-xl">lock</span>
+</div>
+<input class="w-full bg-black/40 border border-slate-700/50 rounded-full py-4 pl-12 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:border-neon-cyan transition-all placeholder:text-slate-600 shadow-inner" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-4 flex items-center text-slate-500 hover:text-neon-cyan transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="group relative mt-4" type="submit">
+<div class="absolute -inset-1 bg-primary rounded-full blur opacity-25 group-hover:opacity-60 transition duration-500"></div>
+<div class="relative flex items-center justify-center gap-2 w-full bg-primary hover:bg-[#96ff25] text-background-dark font-bold py-4 rounded-full transition-all shadow-neon-lime active:scale-95">
+<span class="uppercase tracking-tighter text-lg batman-text">Enter the Club</span>
+<span class="material-symbols-outlined font-bold">arrow_forward</span>
+</div>
+</button>
+</form>
+<!-- Social Login Divider -->
+<div class="relative flex items-center gap-4">
+<div class="flex-1 h-px bg-slate-800"></div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Connect with</span>
+<div class="flex-1 h-px bg-slate-800"></div>
+</div>
+<!-- Social Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 rounded-full border border-slate-800 bg-white/5 hover:bg-white/10 transition-colors">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Google colorful brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ0cvPNEg-yWxI_DA83jfUCPQRrb393W8UVMcs1mup3gMcWqLx0b7tE-jt0CGG-xuuX8Ew6P1OlUkZ4o8BagKcHc2ZOhO_mwIRKDwmfHniO_cKKeq4stfA4MLO098Slo0ekzXLuVI2Dz3b0FZNuTJMMgfm1VyubNyWt8MQ-ZTiZ221qaWba173T5jYEMmPSX1gL6ha_KQAeBL6GRRDYtS-2EX87E02vOn-5hrtRdid88FKcYMAeV6WaVcOecOTGzyH_ja1WDNGIYDT"/>
+<span class="text-xs font-bold uppercase">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 rounded-full border border-slate-800 bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white text-xl">ios</span>
+<span class="text-xs font-bold uppercase">Apple</span>
+</button>
+</div>
+</div>
+<!-- Secondary Footer CTA -->
+<div class="text-center">
+<p class="text-slate-400 text-sm">
+                Don't have an account? 
+                <a class="text-neon-purple font-bold hover:text-white transition-colors ml-1 neon-text-purple" href="#">SIGN UP</a>
+</p>
+</div>
+<!-- Decorative Map Section (Abstract Placeholder) -->
+<div class="mt-4 rounded-xl overflow-hidden h-32 relative border border-white/5 opacity-40 grayscale hover:grayscale-0 transition-all cursor-pointer" data-location="Tokyo" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent z-10"></div>
+<img alt="Tokyo Night Skyline" class="w-full h-full object-cover" data-alt="Neon lit night city streets of Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7oTc-Mil-d6LdaJcLkcpLG5Zo2ZKYgGyPFgMjzNf3-1OTmkUcHFzjReGuUO9Hob3QErTFTgyLxyHUJF-ysGDhwLwSVXKqd6Oy2VJuq-LTujDFYEEGNwdpZi9cvZk5-_Hz8KqGJoHQCu-NxyvjXLhEWGtiTaafcrhRP3M66X3VWq6lDHuPzYftSoOwWeNlxk5F8-Q8LQOopmkG376FENOf83u9TY4XGh_kQJZpT9XI2L3EYT8gTE-RyOBEH4xA-xgNWZWGBIwIkei3"/>
+<div class="absolute bottom-3 left-4 z-20 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-xs">location_on</span>
+<span class="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">Current Venue: Shibuya District</span>
+</div>
+</div>
+</div>
+</body></html>

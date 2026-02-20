@@ -1,48 +1,146 @@
-<!-- templates/dashboard/dashboard.html -->
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <title>User Dashboard</title>
-    
-    <!-- Google Orbitron Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+{% extends 'base.html' %}
 
-    <!-- Neon-themed dashboard CSS -->
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-</head>
-<body>
-    <h1>Welcome {{ user.username }}!</h1>
-    
-    <form method="post">
-        {% csrf_token %}
-        <h2>Select Clubs</h2>
-        <ul>
-            {% for club in all_clubs %}
-                <li>
-                    <label>
-                        <input type="checkbox" name="clubs" value="{{ club.id }}"
-                        {% if club in user_clubs %}checked{% endif %}>
-                        {{ club.name }}
-                    </label>
-                </li>
-            {% endfor %}
-        </ul>
-        <button type="submit">Save Clubs</button>
-    </form>
-    
-    <section>
-        <h2>Your Clubs</h2>
-        <ul>
-            {% for club in user_clubs %}
-                <li>{{ club.name }} - {{ club.description }}</li>
-            {% empty %}
-                <li>You are not registered to any clubs yet.</li>
-            {% endfor %}
-        </ul>
-    </section>
-    
-</body>
-</html>
+{% block title %}Dashboard - Clubify{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- User Welcome Section -->
+    <div
+        class="bg-gray-800 rounded-2xl p-8 mb-10 shadow-lg border border-gray-700 flex flex-col md:flex-row items-center justify-between">
+        <div>
+            <h1 class="text-3xl font-bold text-white mb-2">Welcome, {{ user.first_name|default:user.username }}!</h1>
+            <p class="text-gray-400">Here's an overview of your campus life.</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex gap-4">
+            <a href="{% url 'notifications' %}"
+                class="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-5 py-2.5 rounded-full font-medium transition-colors">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                    </path>
+                </svg>
+                Notifications
+            </a>
+            <a href="{% url 'calendar' %}"
+                class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-full font-medium transition-colors shadow-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
+                My Calendar
+            </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+        <!-- Main Clubs Feed (All Clubs) -->
+        <div class="lg:col-span-2">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                    </path>
+                </svg>
+                Discover Campus Clubs
+            </h2>
+
+            {% if all_clubs %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for club in all_clubs %}
+                <div
+                    class="bg-gray-800 rounded-2xl shadow-lg border border-gray-700 overflow-hidden hover:border-blue-500/50 transition-colors flex flex-col group">
+                    <div class="h-32 bg-gray-700 relative overflow-hidden">
+                        {% if club.logo %}
+                        <img src="{{ club.logo.url }}" alt="{{ club.name }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        {% else %}
+                        <div
+                            class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-600">
+                            <span class="text-3xl font-bold text-gray-500">{{ club.name|slice:":1" }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">{{ club.name }}</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">{{ club.description }}</p>
+
+                        <form action="{% url 'dashboard' %}" method="POST" class="mt-auto">
+                            {% csrf_token %}
+                            <input type="hidden" name="club_id" value="{{ club.id }}">
+                            {% if club in user_clubs %}
+                            <input type="hidden" name="action" value="leave">
+                            <button type="submit"
+                                class="w-full py-2 px-4 rounded-lg font-semibold text-gray-300 bg-gray-700 hover:bg-red-600 hover:text-white border border-gray-600 hover:border-red-600 transition-all">
+                                Leave Club
+                            </button>
+                            {% else %}
+                            <input type="hidden" name="action" value="join">
+                            <button type="submit"
+                                class="w-full py-2 px-4 rounded-lg font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
+                                Join Club
+                            </button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-12 bg-gray-800 rounded-2xl border border-gray-700 border-dashed">
+                <p class="text-gray-400 text-lg">No clubs are currently available on campus.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar (My Clubs) -->
+        <div class="lg:col-span-1">
+            <div class="bg-gray-800/80 rounded-2xl p-6 border border-gray-700 sticky top-24">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
+                        </path>
+                    </svg>
+                    My Enrolled Clubs
+                </h2>
+
+                {% if user_clubs %}
+                <ul class="space-y-4">
+                    {% for club in user_clubs %}
+                    <li
+                        class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-700/50 transition-colors border border-transparent hover:border-gray-600">
+                        {% if club.logo %}
+                        <img src="{{ club.logo.url }}" alt="Logo" class="w-12 h-12 rounded-lg object-cover bg-gray-900">
+                        {% else %}
+                        <div
+                            class="w-12 h-12 rounded-lg bg-gray-700 flex items-center justify-center font-bold text-gray-400 shrink-0">
+                            {{ club.name|slice:":1" }}
+                        </div>
+                        {% endif %}
+                        <div class="flex-grow min-w-0">
+                            <h4 class="text-sm font-bold text-gray-200 truncate">{{ club.name }}</h4>
+                            <p class="text-xs text-blue-400 mt-1">Member</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <div class="text-center py-8">
+                    <svg class="w-12 h-12 text-gray-600 mx-auto mb-3" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    <p class="text-gray-500 text-sm">You haven't joined any clubs yet.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

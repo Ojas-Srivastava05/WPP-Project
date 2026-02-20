@@ -19,7 +19,10 @@ from django.urls import path,include
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LogoutView
 from authentication.views import CustomLogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
+from api.api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +31,9 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='authentication/login.html'), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
     path('stream/',include('streamapp.urls')),
+    path('calendar/',include('calendarapp.urls')),
+    path('api/', api.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

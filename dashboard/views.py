@@ -8,26 +8,35 @@ def send_notifications_view(request):
     # You can pass context to this view if needed
     return render(request, 'authentication/send_notification.html')
 
-def dashboard_view(request):
-    # Ensure the user is logged in
-    if not request.user.is_authenticated:
-        return redirect('login')  # Redirect to the login page
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Club, UserProfile, Notification
+from django.contrib import messages
 
-    # Retrieve or create the user profile
+@login_required
+def dashboard_view(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
-    # Handling POST requests for updating clubs
     if request.method == 'POST':
-        selected = request.POST.getlist('clubs')  # Get selected clubs
-        profile.clubs.set(selected)  # Update the user's clubs
-        return redirect('dashboard')  # Redirect to the dashboard
+        club_id = request.POST.get('club_id')
+        action = request.POST.get('action')
+        
+        if club_id and action:
+            club = get_object_or_404(Club, id=club_id)
+            if action == 'join':
+                profile.clubs.add(club)
+                messages.success(request, f"You have successfully joined {club.name}!")
+            elif action == 'leave':
+                profile.clubs.remove(club)
+                messages.info(request, f"You left {club.name}.")
+        return redirect('dashboard')
 
-    # Prepare context data for the dashboard
     context = {
-        'all_clubs': Club.objects.all(),  # Get all clubs
-        'user_clubs': profile.clubs.all()  # Get the clubs the user is a part of
+        'all_clubs': Club.objects.all().order_by('name'),
+        'user_clubs': profile.clubs.all()
     }
     return render(request, 'dashboard/dashboard.html', context)
+
  
 
 def send_notification(request, club_id, message):
