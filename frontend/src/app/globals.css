@@ -27,44 +27,61 @@ body {
 .neon-glow-purple {
   box-shadow: 0 0 15px rgba(188, 19, 254, 0.6), 0 0 30px rgba(188, 19, 254, 0.3);
 }
+
 .neon-glow-cyan {
   box-shadow: 0 0 15px rgba(13, 204, 242, 0.6), 0 0 30px rgba(13, 204, 242, 0.3);
 }
+
 .neon-glow-lime {
   box-shadow: 0 0 15px rgba(57, 255, 20, 0.6), 0 0 30px rgba(57, 255, 20, 0.3);
 }
+
+@font-face {
+  font-family: 'BatmanForever';
+  src: url('/fonts/batmfa__.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .batman-text {
   text-transform: uppercase;
   letter-spacing: -0.05em;
   line-height: 0.85;
   font-weight: 900;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'BatmanForever', sans-serif;
   filter: drop-shadow(0 0 8px rgba(13, 204, 242, 0.3));
 }
+
 .glass-nav {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(13, 204, 242, 0.3);
 }
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .neon-border-cyan {
   border: 2px solid var(--primary);
   box-shadow: inset 0 0 10px rgba(13, 204, 242, 0.2), 0 0 15px rgba(13, 204, 242, 0.3);
 }
+
 .neon-border-purple {
   border: 2px solid var(--neon-purple);
   box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2), 0 0 15px rgba(188, 19, 254, 0.3);
 }
+
 .neon-border-lime {
   border: 2px solid var(--neon-lime);
   box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2), 0 0 15px rgba(57, 255, 20, 0.3);
 }
+
 .logo-glow {
   filter: drop-shadow(0 0 5px var(--primary));
 }

@@ -1,6 +1,6 @@
 from ninja_extra import NinjaExtraAPI
 from ninja_jwt.controller import NinjaJWTDefaultController
-from api.endpoints import clubs_router, events_router, notifications_router, auth_extensions_router
+from api.endpoints import clubs_router, events_router, notifications_router, auth_extensions_router, admin_router
 
 # Instantiate the main Ninja API router using NinjaExtraAPI for JWT support
 api = NinjaExtraAPI(
@@ -16,6 +16,7 @@ api.add_router("/clubs", clubs_router)
 api.add_router("/events", events_router)
 api.add_router("/notifications", notifications_router)
 api.add_router("/auth", auth_extensions_router)
+api.add_router("/admin", admin_router)
 
 @api.get("/hello", tags=["Misc"])
 def hello(request):

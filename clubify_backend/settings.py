@@ -11,27 +11,30 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os  # Import the os module
+import os
+from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from a .env file if it exists
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mh++q*_^aia=6+5q4-=k4fh##choj^*ehdnuo297t#^-#jxl3_'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-mh++q*_^aia=6+5q4-=k4fh##choj^*ehdnuo297t#^-#jxl3_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Set DEBUG to False by default if RENDER is in the environment
+DEBUG = os.environ.get('RENDER', '') == ''
+if os.environ.get('DEBUG'):
+    DEBUG = os.environ.get('DEBUG', '').lower() == 'true'
 
-ALLOWED_HOSTS = [
-    'clubify.pythonanywhere.com',
-    'Clubify.pythonanywhere.com',
-    '127.0.0.1',
-    'localhost',
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,clubify.pythonanywhere.com').split(',')
+ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
 
 
 # Application definition
@@ -93,10 +96,10 @@ WSGI_APPLICATION = 'clubify_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
+        conn_max_age=600
+    )
 }
 
 

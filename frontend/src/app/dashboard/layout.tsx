@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Calendar as CalendarIcon, Bell, LogOut, Loader2 } from 'lucide-react';
+import { Compass, Calendar as CalendarIcon, Bell, LogOut, Loader2, Shield } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -39,6 +39,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                             <div className="hidden md:flex items-center space-x-1">
                                 <NavLink href="/dashboard" icon={<Compass className="w-4 h-4" />}>Discover</NavLink>
                                 <NavLink href="/calendar" icon={<CalendarIcon className="w-4 h-4" />}>Calendar</NavLink>
+                                <NavLink href="/admin" icon={<Shield className="w-4 h-4" />}>Admin</NavLink>
                             </div>
                         </div>
 
